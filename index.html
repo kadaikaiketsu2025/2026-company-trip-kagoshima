@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大蔵プロセス in 鹿児島 2026</title>
+  <style>
+    :root {
+      --primary: #1a5c8a;
+      --primary-dark: #0f3d5e;
+      --accent: #e8731a;
+      --accent-light: #fdf0e0;
+      --green: #2e7d32;
+      --green-light: #e8f5e9;
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --text-sub: #444444;
+      --border: #d0dae6;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    /* ヘッダー */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #2980b9 100%);
+      color: white;
+      text-align: center;
+      padding: 40px 20px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 40px;
+      background: var(--bg);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    header .emoji-row {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      letter-spacing: 8px;
+    }
+    header h1 {
+      font-size: clamp(1.4rem, 5vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    header .date-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: 50px;
+      padding: 8px 24px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ナビ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      border-bottom: 3px solid var(--primary);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0 12px;
+      min-width: max-content;
+    }
+    nav ul li a {
+      display: block;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: var(--text-sub);
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -3px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav ul li a:hover, nav ul li a.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* メインコンテンツ */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 28px 16px 60px;
+    }
+
+    /* セクション */
+    section {
+      margin-bottom: 40px;
+      scroll-margin-top: 60px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--primary);
+    }
+    .section-title .icon {
+      font-size: 1.8rem;
+    }
+
+    /* カード */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border: 1px solid var(--border);
+    }
+
+    /* 概要カード */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 500px) {
+      .info-grid { grid-template-columns: 1fr; }
+    }
+    .info-item {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 16px;
+      border-left: 5px solid var(--primary);
+    }
+    .info-item .label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .info-item .value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* 緊急連絡先 */
+    .emergency {
+      background: #fff3f3;
+      border: 2px solid #e53935;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 16px;
+    }
+    .emergency .label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #c62828;
+      margin-bottom: 6px;
+    }
+    .emergency .value {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #b71c1c;
+    }
+    .emergency a {
+      color: #b71c1c;
+      text-decoration: none;
+    }
+
+    /* 注意事項 */
+    .notice-list {
+      list-style: none;
+      padding: 0;
+    }
+    .notice-list li {
+      padding: 12px 16px;
+      background: #fffbf0;
+      border-left: 5px solid var(--accent);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .notice-list li::before {
+      content: '⚠️ ';
+    }
+
+    /* タイムライン */
+    .day-header {
+      background: linear-gradient(135deg, var(--primary) 0%, #2980b9 100%);
+      color: white;
+      border-radius: 14px;
+      padding: 18px 24px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .day-header .day-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .day-header .day-info { flex: 1; }
+    .day-header .day-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+    .day-header .day-hotel {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--border));
+      border-radius: 3px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 18px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 12px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+    .timeline-item.highlight::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .timeline-content {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+    }
+    .timeline-content.highlight {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .timeline-time {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .timeline-content.highlight .timeline-time {
+      color: var(--accent);
+    }
+    .timeline-desc {
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .timeline-note {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    /* コース分岐 */
+    .branch-box {
+      background: var(--green-light);
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 8px;
+    }
+    .branch-box .branch-title {
+      font-weight: 900;
+      color: var(--green);
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    .branch-item {
+      padding: 8px 0;
+      border-top: 1px dashed #a5d6a7;
+      font-size: 0.95rem;
+    }
+    .branch-item:first-of-type { border-top: none; }
+    .branch-item .branch-label {
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    /* グルメ・お土産 */
+    .spot-card {
+      border-left: 5px solid var(--accent);
+      padding: 16px 20px;
+      background: white;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 14px;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--accent);
+    }
+    .spot-card .spot-name {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+    .spot-card .spot-access {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .spot-card .spot-desc {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+    }
+    .category-label {
+      font-size: 0.85rem;
+      font-weight: 900;
+      color: white;
+      background: var(--accent);
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .category-label.shop {
+      background: var(--green);
+    }
+
+    /* 部屋割り */
+    .room-section-title {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: white;
+      background: var(--primary);
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .room-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .room-key {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--primary);
+      min-width: 36px;
+      text-align: center;
+      background: #e8f0fa;
+      border-radius: 8px;
+      padding: 4px 6px;
+      line-height: 1.3;
+    }
+    .room-members {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+    footer strong {
+      color: white;
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    /* アクセシビリティ：文字サイズ切替 */
+    .font-size-switcher {
+      position: fixed;
+      bottom: 20px;
+      right: 16px;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .font-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      background: white;
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+    }
+    .font-btn:hover, .font-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* フォントサイズモード */
+    body.font-large { font-size: 22px; }
+    body.font-xlarge { font-size: 26px; }
+    body.font-large .section-title { font-size: 1.7rem; }
+    body.font-xlarge .section-title { font-size: 2rem; }
+
+    @media (max-width: 600px) {
+      .card { padding: 18px; }
+      .day-header { padding: 14px 18px; }
+      .room-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="emoji-row">🌋 🚄 🌊</div>
+  <h1>驚きと喜びと感動を!!!<br>大蔵プロセス in 鹿児島へビュンッ!!</h1>
+  <div class="date-badge">2026年7月18日(土)〜7月20日(月) 2泊3日</div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#overview">📋 概要</a></li>
+    <li><a href="#day1">1日目</a></li>
+    <li><a href="#day2">2日目</a></li>
+    <li><a href="#day3">3日目</a></li>
+    <li><a href="#gourmet">🍖 グルメ</a></li>
+    <li><a href="#rooms">🏨 部屋割り</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- 概要 -->
+  <section id="overview">
+    <h2 class="section-title"><span class="icon">📋</span>旅行概要・集合場所</h2>
+
+    <div class="card">
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="label">参加人数</div>
+          <div class="value">31名様 + 幼児1名様<br><small style="font-weight:500;font-size:0.85rem;">（添乗員1名）</small></div>
+        </div>
+        <div class="info-item">
+          <div class="label">集合時間</div>
+          <div class="value">午前 8:30</div>
+        </div>
+        <div class="info-item" style="grid-column: 1 / -1;">
+          <div class="label">集合場所</div>
+          <div class="value">広島駅 新幹線口 2階<br>ペデストリアンデッキ 中央サークル</div>
+        </div>
+        <div class="info-item" style="grid-column: 1 / -1;">
+          <div class="label">ご利用新幹線（行き）</div>
+          <div class="value">🚄 みずほ 605号　9:11発 → 11:36着（鹿児島中央）</div>
+        </div>
+      </div>
+
+      <div class="emergency">
+        <div class="label">🚨 当日緊急連絡先</div>
+        <div class="value">JTB 広島支店　竹中 遼真<br>
+          <a href="tel:08063189324">📞 080-6318-9324</a>
+        </div>
+      </div>
+
+      <ul class="notice-list" style="margin-top:16px;">
+        <li>観光地のため、貴重品の盗難・忘れ物には各自ご注意ください。</li>
+        <li>団体行動のため、集合時間へのご協力をお願いします。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 1日目 -->
+  <section id="day1">
+    <h2 class="section-title"><span class="icon">🚄</span>1日目（7月18日・土）</h2>
+
+    <div class="day-header">
+      <div class="day-num">Day<br>1</div>
+      <div class="day-info">
+        <div class="day-title">広島 → 鹿児島中央 → 仙巌園 → 指宿</div>
+        <div class="day-hotel">🏨 泊：鹿児島 砂むし温泉 指宿白水館</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">08:30</div>
+            <div class="timeline-desc">広島駅 ご集合</div>
+            <div class="timeline-note">新幹線口 2階 ペデストリアンデッキ 中央サークル</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">09:11</div>
+            <div class="timeline-desc">🚄 広島駅 出発（みずほ 605号）</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">11:36</div>
+            <div class="timeline-desc">鹿児島中央駅 到着</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">11:50</div>
+            <div class="timeline-desc">🚌 鹿児島中央駅 出発</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">12:10〜14:00</div>
+            <div class="timeline-desc">🏯 仙巌園・尚古集成館（昼食）</div>
+            <div class="timeline-note">📸 集合写真あり ／ ※道中コンビニ立寄</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">15:45</div>
+            <div class="timeline-desc">🏨 ホテル到着・チェックイン</div>
+            <div class="timeline-note">鹿児島 砂むし温泉 指宿白水館</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2日目 -->
+  <section id="day2">
+    <h2 class="section-title"><span class="icon">⛩️</span>2日目（7月19日・日）</h2>
+
+    <div class="day-header">
+      <div class="day-num">Day<br>2</div>
+      <div class="day-info">
+        <div class="day-title">西大山駅 → 釜蓋神社 → 知覧 → 鹿児島市内</div>
+        <div class="day-hotel">🏨 泊：ダイワロイネットホテル鹿児島天文館PREMIER</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-desc">🚌 ホテル 出発</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">09:30〜10:00</div>
+            <div class="timeline-desc">🚉 JR西大山駅</div>
+            <div class="timeline-note">📸 集合写真あり</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">10:30〜11:30</div>
+            <div class="timeline-desc">⛩️ 釜蓋神社</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">12:00〜13:00</div>
+            <div class="timeline-desc">🍽️ 薩摩知覧武家屋敷 高城庵（昼食）</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">13:10〜15:30</div>
+            <div class="timeline-desc">知覧武家屋敷 / 知覧特攻平和会館</div>
+            <div class="branch-box">
+              <div class="branch-title">🔀 昼食後のコース分岐</div>
+              <div class="branch-item">
+                <span class="branch-label">①特攻平和会館 2時間コース</span><br>
+                知覧特攻平和会館を2時間見学希望の方は、昼食後バスでご案内します。
+              </div>
+              <div class="branch-item">
+                <span class="branch-label">②特攻平和会館 1時間コース + 知覧武家屋敷コース</span><br>
+                昼食後、知覧武家屋敷を散策後、バスにて知覧特攻平和会館へご案内します。
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">16:30</div>
+            <div class="timeline-desc">🏨 ホテル到着・チェックイン</div>
+            <div class="timeline-note">ダイワロイネットホテル鹿児島天文館PREMIER</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">18:20</div>
+            <div class="timeline-desc">フロント ご集合</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">18:30〜</div>
+            <div class="timeline-desc">🍖 ご夕食</div>
+            <div class="timeline-note">郷土料理 さつま路にて 黒豚しゃぶしゃぶ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3日目 -->
+  <section id="day3">
+    <h2 class="section-title"><span class="icon">🌋</span>3日目（7月20日・月）</h2>
+
+    <div class="day-header">
+      <div class="day-num">Day<br>3</div>
+      <div class="day-info">
+        <div class="day-title">桜島 → 鹿児島中央駅（自由時間）→ 広島</div>
+        <div class="day-hotel">🏠 帰宅</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">08:30</div>
+            <div class="timeline-desc">🚌 ホテル 出発</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">08:45</div>
+            <div class="timeline-desc">🚢 鹿児島港 到着</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">09:00</div>
+            <div class="timeline-desc">🚢 鹿児島港 出発（船）</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">09:15</div>
+            <div class="timeline-desc">桜島港 到着</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">09:40〜10:25</div>
+            <div class="timeline-desc">🌋 有村溶岩展望所</div>
+            <div class="timeline-note">📸 集合写真あり</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">10:50</div>
+            <div class="timeline-desc">桜島港 到着</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">11:05</div>
+            <div class="timeline-desc">🚢 桜島港 出発（船）</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">11:20</div>
+            <div class="timeline-desc">鹿児島港 到着</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">11:40〜13:50</div>
+            <div class="timeline-desc">🍜 鹿児島中央駅　各自昼食＆お買い物</div>
+            <div class="timeline-note">↓ グルメ・お土産情報は下記を参考に！</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">13:50</div>
+            <div class="timeline-desc">新幹線改札前 ご集合</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-time">14:17</div>
+            <div class="timeline-desc">🚄 鹿児島中央駅 出発（さくら 768号）</div>
+          </div>
+        </div>
+        <div class="timeline-item highlight">
+          <div class="timeline-content highlight">
+            <div class="timeline-time">16:51</div>
+            <div class="timeline-desc">🏠 広島駅 到着</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- グルメ・お土産 -->
+  <section id="gourmet">
+    <h2 class="section-title"><span class="icon">🍖</span>鹿児島中央駅 昼食＆お土産ガイド</h2>
+    <p style="color:var(--text-sub); margin-bottom:20px; font-size:0.95rem;">3日目の自由時間（11:40〜13:50）にどうぞ！</p>
+
+    <div class="card">
+      <div class="category-label">🍽️ ガッツリ鹿児島グルメ</div>
+
+      <div class="spot-card">
+        <div class="spot-name">黒かつ亭 中央駅本店</div>
+        <div class="spot-access">📍 鹿児島中央駅から徒歩 約9分</div>
+        <div class="spot-desc">鹿児島県産黒豚を使ったとんかつ専門店。「黒豚上ロースかつ定食」と「黒かつ亭定食」が看板料理。昼時には行列ができる地元の人気店。</div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-name">鹿児島ラーメン 豚とろ　鹿児島中央駅前店</div>
+        <div class="spot-access">📍 鹿児島中央駅から徒歩 約3分</div>
+        <div class="spot-desc">希少部位「豚トロ」を贅沢に使った自家製チャーシューが人気。鹿児島豚をじっくり炊いた濃厚スープは「至福の一杯」と呼ばれています。</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="category-label shop">🛍️ お買い物・お土産</div>
+
+      <div class="spot-card">
+        <div class="spot-name">カゴマニア</div>
+        <div class="spot-access">📍 鹿児島中央駅から徒歩 約5分</div>
+        <div class="spot-desc">西郷さんグッズをはじめ、鹿児島の名物や方言がモチーフになったシュールでかわいいアイテムを販売する雑貨店。お土産に最適！</div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-name">焼酎維新館</div>
+        <div class="spot-access">📍 アミュプラザ鹿児島 本館B1F</div>
+        <div class="spot-desc">鹿児島の芋焼酎・黒糖焼酎を多数揃え。併設の「角打ち（立ち飲み）」では1杯330円からビールや焼酎が楽しめます。<br><small>角打ち営業時間：12:00〜20:00</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 部屋割り -->
+  <section id="rooms">
+    <h2 class="section-title"><span class="icon">🏨</span>部屋割り</h2>
+    <p style="color:var(--text-sub); margin-bottom:16px; font-size:0.95rem;">部屋番号は直前に手書きで記入してください。</p>
+
+    <div class="card">
+      <div class="room-section-title">🌙 1日目：指宿白水館</div>
+      <div class="room-grid">
+        <div class="room-item"><div class="room-key">A</div><div class="room-members">社長<br>えりこさん</div></div>
+        <div class="room-item"><div class="room-key">B</div><div class="room-members">奥さん<br>神野</div></div>
+        <div class="room-item"><div class="room-key">C</div><div class="room-members">吉丸家<br>（3名）</div></div>
+        <div class="room-item"><div class="room-key">D</div><div class="room-members">専務<br>吉岡<br>工場長<br>上加</div></div>
+        <div class="room-item"><div class="room-key">E</div><div class="room-members">上川<br>大岡<br>河田<br>山田</div></div>
+        <div class="room-item"><div class="room-key">F</div><div class="room-members">松岡<br>三浦<br>空<br>岡野</div></div>
+        <div class="room-item"><div class="room-key">G</div><div class="room-members">畠田<br>寺戸<br>鈴木<br>服部</div></div>
+        <div class="room-item"><div class="room-key">H</div><div class="room-members">神田<br>中島<br>今田<br>東谷</div></div>
+        <div class="room-item"><div class="room-key">I</div><div class="room-members">浅尾<br>安田<br>溝尾</div></div>
+        <div class="room-item"><div class="room-key">J</div><div class="room-members">杉元<br>大田<br>安村</div></div>
+      </div>
+
+      <div class="room-section-title">🌙 2日目：ダイワロイネットホテル鹿児島天文館PREMIER</div>
+      <div class="room-grid">
+        <div class="room-item"><div class="room-key">あ</div><div class="room-members">社長<br>えりこさん</div></div>
+        <div class="room-item"><div class="room-key">い</div><div class="room-members">奥さん<br>神野</div></div>
+        <div class="room-item"><div class="room-key">う</div><div class="room-members">吉丸家<br>（3名）</div></div>
+        <div class="room-item"><div class="room-key">え</div><div class="room-members">専務<br>吉岡</div></div>
+        <div class="room-item"><div class="room-key">お</div><div class="room-members">工場長<br>服部</div></div>
+        <div class="room-item"><div class="room-key">か</div><div class="room-members">松岡<br>三浦</div></div>
+        <div class="room-item"><div class="room-key">き</div><div class="room-members">上川<br>大岡</div></div>
+        <div class="room-item"><div class="room-key">く</div><div class="room-members">河田<br>鈴木</div></div>
+        <div class="room-item"><div class="room-key">け</div><div class="room-members">岡野<br>空</div></div>
+        <div class="room-item"><div class="room-key">こ</div><div class="room-members">畠田<br>上加</div></div>
+        <div class="room-item"><div class="room-key">さ</div><div class="room-members">寺戸<br>山田</div></div>
+        <div class="room-item"><div class="room-key">し</div><div class="room-members">神田<br>中島</div></div>
+        <div class="room-item"><div class="room-key">す</div><div class="room-members">今田<br>東谷</div></div>
+        <div class="room-item"><div class="room-key">せ</div><div class="room-members">安村<br>溝尾</div></div>
+        <div class="room-item"><div class="room-key">そ</div><div class="room-members">浅尾<br>安田</div></div>
+        <div class="room-item"><div class="room-key">た</div><div class="room-members">杉元<br>大田</div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>大蔵プロセス 2026年 社員旅行 in 鹿児島</strong>
+  2026年7月18日(土)〜7月20日(月)　2泊3日<br>
+  担当：JTB 広島支店　竹中 遼真　📞 080-6318-9324
+</footer>
+
+<!-- 文字サイズ切替ボタン -->
+<div class="font-size-switcher">
+  <button class="font-btn active" onclick="setFont('normal')" title="標準">A</button>
+  <button class="font-btn" onclick="setFont('large')" title="大きめ">A+</button>
+  <button class="font-btn" onclick="setFont('xlarge')" title="さらに大きく">A++</button>
+</div>
+
+<script>
+  // 文字サイズ切替
+  function setFont(size) {
+    document.body.classList.remove('font-large', 'font-xlarge');
+    if (size === 'large') document.body.classList.add('font-large');
+    if (size === 'xlarge') document.body.classList.add('font-xlarge');
+    document.querySelectorAll('.font-btn').forEach(b => b.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+    localStorage.setItem('fontSize', size);
+  }
+
+  // 前回の設定を復元
+  const saved = localStorage.getItem('fontSize');
+  if (saved && saved !== 'normal') {
+    document.querySelectorAll('.font-btn').forEach(b => b.classList.remove('active'));
+    document.body.classList.add('font-' + saved);
+    const idx = saved === 'large' ? 1 : 2;
+    document.querySelectorAll('.font-btn')[idx].classList.add('active');
+  }
+
+  // ナビのアクティブ状態
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
