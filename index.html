@@ -331,7 +331,6 @@
 
     /* グルメ・お土産 */
     .spot-card {
-      border-left: 5px solid var(--accent);
       padding: 16px 20px;
       background: white;
       border-radius: 0 12px 12px 0;
@@ -849,14 +848,14 @@
 
 <!-- 文字サイズ切替ボタン -->
 <div class="font-size-switcher">
-  <button class="font-btn active" onclick="setFont('normal')" title="標準">A</button>
-  <button class="font-btn" onclick="setFont('large')" title="大きめ">A+</button>
-  <button class="font-btn" onclick="setFont('xlarge')" title="さらに大きく">A++</button>
+  <button class="font-btn active" onclick="setFont(event, 'normal')" title="標準">A</button>
+  <button class="font-btn" onclick="setFont(event, 'large')" title="大きめ">A+</button>
+  <button class="font-btn" onclick="setFont(event, 'xlarge')" title="さらに大きく">A++</button>
 </div>
 
 <script>
   // 文字サイズ切替
-  function setFont(size) {
+  function setFont(event, size) {
     document.body.classList.remove('font-large', 'font-xlarge');
     if (size === 'large') document.body.classList.add('font-large');
     if (size === 'xlarge') document.body.classList.add('font-xlarge');
