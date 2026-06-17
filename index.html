@@ -71,6 +71,39 @@
       backdrop-filter: blur(4px);
     }
 
+    /* ヒーロー写真帯 */
+    .hero-photos {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      height: 240px;
+      gap: 3px;
+      background: #000;
+    }
+    .hero-photos .hero-photo {
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-photos .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .hero-photos .hero-photo:hover img { transform: scale(1.05); }
+    .hero-photos .hero-photo .hero-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 16px 10px 8px;
+    }
+    @media (max-width: 600px) {
+      .hero-photos { grid-template-columns: 1fr 1fr; height: 180px; }
+      .hero-photos .hero-photo:last-child { display: none; }
+    }
+
     /* ナビ */
     nav {
       position: sticky;
@@ -129,9 +162,7 @@
       padding-bottom: 12px;
       border-bottom: 3px solid var(--primary);
     }
-    .section-title .icon {
-      font-size: 1.8rem;
-    }
+    .section-title .icon { font-size: 1.8rem; }
 
     /* カード */
     .card {
@@ -141,6 +172,72 @@
       margin-bottom: 16px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.07);
       border: 1px solid var(--border);
+    }
+
+    /* 写真グリッド */
+    .photo-grid {
+      display: grid;
+      gap: 8px;
+      margin: 18px 0 4px;
+    }
+    .photo-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .photo-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .photo-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 600px) {
+      .photo-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .photo-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    .photo-item {
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+      background: #dde4ee;
+    }
+    .photo-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+    .photo-item:hover img { transform: scale(1.06); }
+    .photo-item .photo-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 18px 8px 6px;
+    }
+    .photo-item.tall { aspect-ratio: 3/4; }
+    .photo-item.wide { aspect-ratio: 16/9; }
+
+    /* スポットカード写真付き */
+    .spot-photo {
+      width: 100%;
+      aspect-ratio: 16/7;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    /* ホテル写真 */
+    .hotel-photo-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .hotel-photo-row img {
+      width: 100%; aspect-ratio: 3/2;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+    @media (max-width: 500px) {
+      .hotel-photo-row { grid-template-columns: 1fr; }
     }
 
     /* 概要カード */
@@ -191,16 +288,10 @@
       font-weight: 900;
       color: #b71c1c;
     }
-    .emergency a {
-      color: #b71c1c;
-      text-decoration: none;
-    }
+    .emergency a { color: #b71c1c; text-decoration: none; }
 
     /* 注意事項 */
-    .notice-list {
-      list-style: none;
-      padding: 0;
-    }
+    .notice-list { list-style: none; padding: 0; }
     .notice-list li {
       padding: 12px 16px;
       background: #fffbf0;
@@ -210,9 +301,7 @@
       font-weight: 600;
       font-size: 1rem;
     }
-    .notice-list li::before {
-      content: '⚠️ ';
-    }
+    .notice-list li::before { content: '⚠️ '; }
 
     /* タイムライン */
     .day-header {
@@ -225,46 +314,26 @@
       align-items: center;
       gap: 14px;
     }
-    .day-header .day-num {
-      font-size: 2.2rem;
-      font-weight: 900;
-      line-height: 1;
-    }
+    .day-header .day-num { font-size: 2.2rem; font-weight: 900; line-height: 1; }
     .day-header .day-info { flex: 1; }
-    .day-header .day-title {
-      font-size: 1.1rem;
-      font-weight: 900;
-      margin-bottom: 4px;
-    }
-    .day-header .day-hotel {
-      font-size: 0.9rem;
-      opacity: 0.85;
-    }
+    .day-header .day-title { font-size: 1.1rem; font-weight: 900; margin-bottom: 4px; }
+    .day-header .day-hotel { font-size: 0.9rem; opacity: 0.85; }
 
-    .timeline {
-      position: relative;
-      padding-left: 28px;
-    }
+    .timeline { position: relative; padding-left: 28px; }
     .timeline::before {
       content: '';
       position: absolute;
-      left: 10px;
-      top: 0; bottom: 0;
+      left: 10px; top: 0; bottom: 0;
       width: 3px;
       background: linear-gradient(to bottom, var(--primary), var(--border));
       border-radius: 3px;
     }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 18px;
-    }
+    .timeline-item { position: relative; margin-bottom: 18px; }
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -24px;
-      top: 12px;
-      width: 14px;
-      height: 14px;
+      left: -24px; top: 12px;
+      width: 14px; height: 14px;
       border-radius: 50%;
       background: var(--primary);
       border: 3px solid white;
@@ -290,19 +359,9 @@
       color: var(--primary);
       margin-bottom: 2px;
     }
-    .timeline-content.highlight .timeline-time {
-      color: var(--accent);
-    }
-    .timeline-desc {
-      font-size: 1rem;
-      color: var(--text);
-      font-weight: 600;
-    }
-    .timeline-note {
-      font-size: 0.88rem;
-      color: var(--text-sub);
-      margin-top: 4px;
-    }
+    .timeline-content.highlight .timeline-time { color: var(--accent); }
+    .timeline-desc { font-size: 1rem; color: var(--text); font-weight: 600; }
+    .timeline-note { font-size: 0.88rem; color: var(--text-sub); margin-top: 4px; }
 
     /* コース分岐 */
     .branch-box {
@@ -324,10 +383,7 @@
       font-size: 0.95rem;
     }
     .branch-item:first-of-type { border-top: none; }
-    .branch-item .branch-label {
-      font-weight: 900;
-      color: var(--green);
-    }
+    .branch-item .branch-label { font-weight: 900; color: var(--green); }
 
     /* グルメ・お土産 */
     .spot-card {
@@ -350,10 +406,7 @@
       color: var(--accent);
       margin-bottom: 6px;
     }
-    .spot-card .spot-desc {
-      font-size: 0.95rem;
-      color: var(--text-sub);
-    }
+    .spot-card .spot-desc { font-size: 0.95rem; color: var(--text-sub); }
     .category-label {
       font-size: 0.85rem;
       font-weight: 900;
@@ -364,9 +417,7 @@
       border-radius: 20px;
       margin-bottom: 12px;
     }
-    .category-label.shop {
-      background: var(--green);
-    }
+    .category-label.shop { background: var(--green); }
 
     /* 部屋割り */
     .room-section-title {
@@ -419,26 +470,19 @@
       color: rgba(255,255,255,0.7);
       font-size: 0.9rem;
     }
-    footer strong {
-      color: white;
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
+    footer strong { color: white; display: block; font-size: 1rem; margin-bottom: 6px; }
 
     /* アクセシビリティ：文字サイズ切替 */
     .font-size-switcher {
       position: fixed;
-      bottom: 20px;
-      right: 16px;
+      bottom: 20px; right: 16px;
       z-index: 200;
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
     .font-btn {
-      width: 50px;
-      height: 50px;
+      width: 50px; height: 50px;
       border-radius: 50%;
       border: 2px solid var(--primary);
       background: white;
@@ -452,12 +496,8 @@
       justify-content: center;
       transition: background 0.2s, color 0.2s;
     }
-    .font-btn:hover, .font-btn.active {
-      background: var(--primary);
-      color: white;
-    }
+    .font-btn:hover, .font-btn.active { background: var(--primary); color: white; }
 
-    /* フォントサイズモード */
     body.font-large { font-size: 22px; }
     body.font-xlarge { font-size: 26px; }
     body.font-large .section-title { font-size: 1.7rem; }
@@ -477,6 +517,22 @@
   <h1>驚きと喜びと感動を!!!<br>大蔵プロセス in 鹿児島へビュンッ!!</h1>
   <div class="date-badge">2026年7月18日(土)〜7月20日(月) 2泊3日</div>
 </header>
+
+<!-- ヒーロー写真帯 -->
+<div class="hero-photos">
+  <div class="hero-photo">
+    <img src="https://source.unsplash.com/900x500/?sakurajima,volcano,kagoshima" alt="桜島" loading="lazy">
+    <div class="hero-label">🌋 桜島</div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://source.unsplash.com/500x500/?ibusuki,onsen,japan" alt="指宿温泉" loading="lazy">
+    <div class="hero-label">♨️ 指宿温泉</div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://source.unsplash.com/500x500/?kagoshima,japan,garden" alt="鹿児島" loading="lazy">
+    <div class="hero-label">🏯 鹿児島</div>
+  </div>
+</div>
 
 <nav>
   <ul>
@@ -541,6 +597,22 @@
       </div>
     </div>
 
+    <!-- 1日目写真 -->
+    <div class="photo-grid cols-3" style="margin-bottom:16px;">
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/600x450/?senganen,kagoshima,garden,japan" alt="仙巌園" loading="lazy">
+        <div class="photo-label">🏯 仙巌園</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/600x450/?japan,sand,bath,onsen" alt="砂むし温泉" loading="lazy">
+        <div class="photo-label">♨️ 砂むし温泉</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/600x450/?japan,luxury,hotel,onsen,resort" alt="指宿白水館" loading="lazy">
+        <div class="photo-label">🏨 指宿白水館</div>
+      </div>
+    </div>
+
     <div class="card">
       <div class="timeline">
         <div class="timeline-item highlight">
@@ -573,6 +645,16 @@
             <div class="timeline-time">12:10〜14:00</div>
             <div class="timeline-desc">🏯 仙巌園・尚古集成館（昼食）</div>
             <div class="timeline-note">📸 集合写真あり ／ ※道中コンビニ立寄</div>
+            <div class="photo-grid cols-2" style="margin-top:10px;">
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?senganen,japanese,garden" alt="仙巌園庭園" loading="lazy">
+                <div class="photo-label">仙巌園 庭園</div>
+              </div>
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?kagoshima,museum,meiji,japan" alt="尚古集成館" loading="lazy">
+                <div class="photo-label">尚古集成館</div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="timeline-item">
@@ -580,6 +662,10 @@
             <div class="timeline-time">15:45</div>
             <div class="timeline-desc">🏨 ホテル到着・チェックイン</div>
             <div class="timeline-note">鹿児島 砂むし温泉 指宿白水館</div>
+            <div class="hotel-photo-row">
+              <img src="https://source.unsplash.com/600x400/?ibusuki,japan,hot,spring,resort" alt="指宿白水館外観" loading="lazy">
+              <img src="https://source.unsplash.com/600x400/?japan,sand,bath,ibusuki" alt="砂むし温泉体験" loading="lazy">
+            </div>
           </div>
         </div>
       </div>
@@ -598,6 +684,26 @@
       </div>
     </div>
 
+    <!-- 2日目写真 -->
+    <div class="photo-grid cols-4" style="margin-bottom:16px;">
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/400x300/?japan,rural,train,station,scenery" alt="西大山駅" loading="lazy">
+        <div class="photo-label">🚉 西大山駅</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/400x300/?japanese,shrine,torii,sea" alt="釜蓋神社" loading="lazy">
+        <div class="photo-label">⛩️ 釜蓋神社</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/400x300/?chiran,japan,samurai,garden" alt="知覧武家屋敷" loading="lazy">
+        <div class="photo-label">🏘️ 知覧武家屋敷</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/400x300/?japanese,black,pork,shabu,hotpot" alt="黒豚しゃぶしゃぶ" loading="lazy">
+        <div class="photo-label">🍖 黒豚しゃぶしゃぶ</div>
+      </div>
+    </div>
+
     <div class="card">
       <div class="timeline">
         <div class="timeline-item">
@@ -611,12 +717,32 @@
             <div class="timeline-time">09:30〜10:00</div>
             <div class="timeline-desc">🚉 JR西大山駅</div>
             <div class="timeline-note">📸 集合写真あり</div>
+            <div class="photo-grid cols-2" style="margin-top:10px;">
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?japan,train,station,countryside,mountain" alt="西大山駅" loading="lazy">
+                <div class="photo-label">最南端の駅</div>
+              </div>
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?kagoshima,kaimondake,japan,mountain" alt="開聞岳" loading="lazy">
+                <div class="photo-label">開聞岳の眺め</div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="timeline-item highlight">
           <div class="timeline-content highlight">
             <div class="timeline-time">10:30〜11:30</div>
             <div class="timeline-desc">⛩️ 釜蓋神社</div>
+            <div class="photo-grid cols-2" style="margin-top:10px;">
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?japanese,shrine,torii,ocean,sunset" alt="釜蓋神社" loading="lazy">
+                <div class="photo-label">釜蓋神社</div>
+              </div>
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?japan,sea,shrine,worship" alt="釜蓋神社海" loading="lazy">
+                <div class="photo-label">東シナ海を望む</div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="timeline-item">
@@ -629,7 +755,17 @@
           <div class="timeline-content highlight">
             <div class="timeline-time">13:10〜15:30</div>
             <div class="timeline-desc">知覧武家屋敷 / 知覧特攻平和会館</div>
-            <div class="branch-box">
+            <div class="photo-grid cols-2" style="margin-top:10px;">
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?samurai,house,garden,japan,old" alt="知覧武家屋敷" loading="lazy">
+                <div class="photo-label">知覧武家屋敷群</div>
+              </div>
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?japan,peace,memorial,museum" alt="知覧特攻平和会館" loading="lazy">
+                <div class="photo-label">特攻平和会館</div>
+              </div>
+            </div>
+            <div class="branch-box" style="margin-top:10px;">
               <div class="branch-title">🔀 昼食後のコース分岐</div>
               <div class="branch-item">
                 <span class="branch-label">①特攻平和会館 2時間コース</span><br>
@@ -647,6 +783,10 @@
             <div class="timeline-time">16:30</div>
             <div class="timeline-desc">🏨 ホテル到着・チェックイン</div>
             <div class="timeline-note">ダイワロイネットホテル鹿児島天文館PREMIER</div>
+            <div class="hotel-photo-row" style="margin-top:10px;">
+              <img src="https://source.unsplash.com/600x400/?hotel,lobby,modern,japan,city" alt="ダイワロイネットホテル" loading="lazy">
+              <img src="https://source.unsplash.com/600x400/?kagoshima,city,night,japan" alt="鹿児島市内夜景" loading="lazy">
+            </div>
           </div>
         </div>
         <div class="timeline-item highlight">
@@ -660,6 +800,16 @@
             <div class="timeline-time">18:30〜</div>
             <div class="timeline-desc">🍖 ご夕食</div>
             <div class="timeline-note">郷土料理 さつま路にて 黒豚しゃぶしゃぶ</div>
+            <div class="photo-grid cols-2" style="margin-top:10px;">
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?shabu,japanese,hotpot,pork,food" alt="黒豚しゃぶしゃぶ" loading="lazy">
+                <div class="photo-label">黒豚しゃぶしゃぶ</div>
+              </div>
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?japanese,restaurant,dinner,feast" alt="郷土料理さつま路" loading="lazy">
+                <div class="photo-label">郷土料理 さつま路</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -675,6 +825,22 @@
       <div class="day-info">
         <div class="day-title">桜島 → 鹿児島中央駅（自由時間）→ 広島</div>
         <div class="day-hotel">🏠 帰宅</div>
+      </div>
+    </div>
+
+    <!-- 3日目写真 -->
+    <div class="photo-grid cols-3" style="margin-bottom:16px;">
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/600x450/?sakurajima,volcano,eruption" alt="桜島火山" loading="lazy">
+        <div class="photo-label">🌋 桜島（活火山）</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/600x450/?sakurajima,lava,japan,nature" alt="有村溶岩展望所" loading="lazy">
+        <div class="photo-label">🪨 有村溶岩展望所</div>
+      </div>
+      <div class="photo-item">
+        <img src="https://source.unsplash.com/600x450/?kagoshima,ferry,bay,japan" alt="桜島フェリー" loading="lazy">
+        <div class="photo-label">🚢 桜島フェリー</div>
       </div>
     </div>
 
@@ -709,6 +875,16 @@
             <div class="timeline-time">09:40〜10:25</div>
             <div class="timeline-desc">🌋 有村溶岩展望所</div>
             <div class="timeline-note">📸 集合写真あり</div>
+            <div class="photo-grid cols-2" style="margin-top:10px;">
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?sakurajima,volcano,japan,smoke" alt="桜島噴煙" loading="lazy">
+                <div class="photo-label">間近に見る桜島</div>
+              </div>
+              <div class="photo-item">
+                <img src="https://source.unsplash.com/500x375/?lava,rock,japan,volcanic,landscape" alt="溶岩" loading="lazy">
+                <div class="photo-label">溶岩大地</div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="timeline-item">
@@ -767,12 +943,14 @@
       <div class="category-label">🍽️ ガッツリ鹿児島グルメ</div>
 
       <div class="spot-card">
+        <img class="spot-photo" src="https://source.unsplash.com/800x300/?tonkatsu,japanese,pork,cutlet,food" alt="黒かつ亭" loading="lazy">
         <div class="spot-name">黒かつ亭 中央駅本店</div>
         <div class="spot-access">📍 鹿児島中央駅から徒歩 約9分</div>
         <div class="spot-desc">鹿児島県産黒豚を使ったとんかつ専門店。「黒豚上ロースかつ定食」と「黒かつ亭定食」が看板料理。昼時には行列ができる地元の人気店。</div>
       </div>
 
       <div class="spot-card">
+        <img class="spot-photo" src="https://source.unsplash.com/800x300/?ramen,japanese,noodle,pork,bowl" alt="鹿児島ラーメン豚とろ" loading="lazy">
         <div class="spot-name">鹿児島ラーメン 豚とろ　鹿児島中央駅前店</div>
         <div class="spot-access">📍 鹿児島中央駅から徒歩 約3分</div>
         <div class="spot-desc">希少部位「豚トロ」を贅沢に使った自家製チャーシューが人気。鹿児島豚をじっくり炊いた濃厚スープは「至福の一杯」と呼ばれています。</div>
@@ -783,15 +961,40 @@
       <div class="category-label shop">🛍️ お買い物・お土産</div>
 
       <div class="spot-card">
+        <img class="spot-photo" src="https://source.unsplash.com/800x300/?japanese,souvenir,shop,cute,goods" alt="カゴマニア" loading="lazy">
         <div class="spot-name">カゴマニア</div>
         <div class="spot-access">📍 鹿児島中央駅から徒歩 約5分</div>
         <div class="spot-desc">西郷さんグッズをはじめ、鹿児島の名物や方言がモチーフになったシュールでかわいいアイテムを販売する雑貨店。お土産に最適！</div>
       </div>
 
       <div class="spot-card">
+        <img class="spot-photo" src="https://source.unsplash.com/800x300/?shochu,japanese,spirits,bottle,distillery" alt="焼酎維新館" loading="lazy">
         <div class="spot-name">焼酎維新館</div>
         <div class="spot-access">📍 アミュプラザ鹿児島 本館B1F</div>
         <div class="spot-desc">鹿児島の芋焼酎・黒糖焼酎を多数揃え。併設の「角打ち（立ち飲み）」では1杯330円からビールや焼酎が楽しめます。<br><small>角打ち営業時間：12:00〜20:00</small></div>
+      </div>
+
+      <!-- お土産品写真グリッド -->
+      <div style="margin-top:20px;">
+        <p style="font-size:0.9rem; font-weight:700; color:var(--primary-dark); margin-bottom:10px;">🎁 鹿児島のおすすめお土産</p>
+        <div class="photo-grid cols-4">
+          <div class="photo-item">
+            <img src="https://source.unsplash.com/300x300/?japanese,sweet,confectionery,souvenir" alt="かるかん" loading="lazy">
+            <div class="photo-label">かるかん</div>
+          </div>
+          <div class="photo-item">
+            <img src="https://source.unsplash.com/300x300/?shochu,bottle,japanese,sake" alt="芋焼酎" loading="lazy">
+            <div class="photo-label">芋焼酎</div>
+          </div>
+          <div class="photo-item">
+            <img src="https://source.unsplash.com/300x300/?japanese,pork,black,iberico,raw,meat" alt="黒豚" loading="lazy">
+            <div class="photo-label">黒豚加工品</div>
+          </div>
+          <div class="photo-item">
+            <img src="https://source.unsplash.com/300x300/?japanese,tea,green,kagoshima" alt="知覧茶" loading="lazy">
+            <div class="photo-label">知覧茶</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -854,7 +1057,6 @@
 </div>
 
 <script>
-  // 文字サイズ切替
   function setFont(event, size) {
     document.body.classList.remove('font-large', 'font-xlarge');
     if (size === 'large') document.body.classList.add('font-large');
@@ -864,7 +1066,6 @@
     localStorage.setItem('fontSize', size);
   }
 
-  // 前回の設定を復元
   const saved = localStorage.getItem('fontSize');
   if (saved && saved !== 'normal') {
     document.querySelectorAll('.font-btn').forEach(b => b.classList.remove('active'));
@@ -873,7 +1074,6 @@
     document.querySelectorAll('.font-btn')[idx].classList.add('active');
   }
 
-  // ナビのアクティブ状態
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav a');
   const observer = new IntersectionObserver(entries => {
