@@ -1,802 +1,1138 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-size="normal">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>大蔵プロセス 社員旅行2026 in 鹿児島</title>
+<title>大蔵プロセス in 鹿児島 ｜ 社員旅行2026 しおり</title>
+<meta name="description" content="有限会社大蔵プロセス 社員旅行2026 in 鹿児島（2026年7月18日〜20日）のウェブしおり">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#1a2646;
-  --navy-d:#0d1526;
-  --navy-l:#253266;
-  --gold:#c8a84b;
-  --gold-l:#e8d090;
-  --gold-p:#faf4e4;
-  --sakura:#d4799a;
-  --sak-l:#fdeef5;
-  --white:#fff;
-  --off:#f8f6f1;
-  --gray:#5c6470;
-  --shadow:0 6px 28px rgba(0,0,0,.13);
+  --paper:#f3e9d2;
+  --paper2:#ead9b3;
+  --paper-deep:#e4d3ac;
+  --ink:#2c2015;
+  --border:#33241a;
+  --red:#b8402c;
+  --red-deep:#8f2f20;
+  --navy:#233450;
+  --navy2:#2d4266;
+  --gold:#e2a83f;
+  --gold-soft:#f6e0a3;
+  --green:#4c6b3f;
+  --shadow:0 10px 26px rgba(43,32,21,.22);
+  --shadow-sm:0 4px 14px rgba(43,32,21,.16);
+  --fs-scale:1;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;background:var(--off);color:#1a1a2e;font-size:18px;line-height:1.85;overflow-x:hidden}
+html[data-size="large"]{--fs-scale:1.14}
+html[data-size="xlarge"]{--fs-scale:1.3}
+body{
+  margin:0;
+  font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN','Hiragino Kaku Gothic ProN',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  font-size:calc(18px * var(--fs-scale));
+  line-height:1.9;
+  overflow-x:hidden;
+}
 img{display:block;max-width:100%;height:auto}
-a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-weight:900;margin:0}
+p{margin:0}
+a{color:inherit}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip-link{position:fixed;top:-60px;left:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:8px;z-index:9999;font-weight:700;transition:top .2s}
+.skip-link:focus{top:8px}
 
-/* ========== HERO ========== */
-.hero{position:relative;height:100dvh;min-height:600px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/3/31/Sakurajima-2.jpg') center 40%/cover no-repeat;filter:brightness(.75);transform:scale(1.06);transition:transform 10s ease}
-.hero-bg.loaded{transform:scale(1)}
-.hero-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,34,.93) 0%,rgba(10,16,34,.45) 45%,rgba(10,16,34,.2) 100%)}
-.hero-c{position:relative;z-index:2;color:#fff;padding:40px 24px 100px;max-width:800px}
-.hero-badge{display:inline-block;background:var(--gold);color:var(--navy-d);font-size:.88rem;font-weight:700;padding:5px 26px;border-radius:30px;letter-spacing:.12em;margin-bottom:28px}
-.hero-h1{font-family:'Noto Serif JP',serif;font-size:clamp(2.4rem,7vw,5.2rem);font-weight:700;line-height:1.15;text-shadow:0 3px 22px rgba(0,0,0,.55);margin-bottom:8px}
-.hero-loc{font-size:clamp(1.1rem,3vw,1.9rem);color:var(--gold-l);letter-spacing:.38em;margin-bottom:16px}
-.hero-copy{font-family:'Noto Serif JP',serif;font-size:clamp(1.7rem,5vw,3.4rem);font-weight:700;color:var(--gold);text-shadow:0 2px 14px rgba(0,0,0,.45);margin-bottom:24px}
-.hero-dates{font-size:clamp(1rem,2.4vw,1.25rem);color:rgba(255,255,255,.9);margin-bottom:40px;line-height:2.1}
-.countdown{display:inline-flex;flex-direction:column;align-items:center;gap:3px;background:rgba(10,16,34,.72);border:2.5px solid var(--gold);border-radius:20px;padding:20px 52px;backdrop-filter:blur(10px)}
-.cd-label{font-size:.95rem;color:rgba(255,255,255,.78)}
-.cd-num{font-family:'Noto Serif JP',serif;font-size:clamp(3.8rem,11vw,7rem);font-weight:700;color:var(--gold);line-height:1}
-.cd-unit{font-size:1.15rem;color:rgba(255,255,255,.85)}
-.scroll-arrow{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.55);font-size:.82rem;text-align:center;animation:bob 2.2s ease-in-out infinite}
-.scroll-arrow::after{content:'▼';display:block;font-size:1.1rem;margin-top:3px}
-@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(11px)}}
+/* paper grain texture overlay for whole site */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;mix-blend-mode:multiply;
+  background-image:radial-gradient(rgba(60,42,26,.05) 1px,transparent 1px);
+  background-size:3px 3px;
+}
 
-/* ========== NAV ========== */
-.nav{background:var(--navy);position:sticky;top:0;z-index:300;box-shadow:0 2px 14px rgba(0,0,0,.3)}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+
+/* ============ UTILITY BAR (font size) ============ */
+.util-bar{
+  position:sticky;top:0;z-index:500;background:var(--border);color:#fff;
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  padding:6px 14px;font-size:.86rem;
+}
+.util-bar span.lbl{opacity:.8;font-weight:700}
+.util-bar button{
+  font-family:inherit;background:var(--navy2);color:#fff;border:2px solid rgba(255,255,255,.25);
+  border-radius:20px;padding:4px 14px;cursor:pointer;font-weight:700;min-height:34px;
+  transition:transform .15s, background .15s;
+}
+.util-bar button:hover{background:var(--gold);color:var(--ink)}
+.util-bar button[aria-pressed="true"]{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.util-bar button:active{transform:scale(.92)}
+
+/* ============ NAV ============ */
+.nav{position:sticky;top:34px;z-index:490;background:var(--navy);box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .nav-inner::-webkit-scrollbar{display:none}
-.nav a{flex-shrink:0;padding:13px 20px;color:rgba(255,255,255,.68);font-size:.9rem;font-weight:500;white-space:nowrap;border-bottom:3px solid transparent;transition:color .2s,border-color .2s}
-.nav a:hover{color:var(--gold);border-bottom-color:var(--gold)}
-
-/* ========== MEETING BANNER ========== */
-.mtg{background:linear-gradient(135deg,var(--navy-d),var(--navy-l));color:#fff;padding:32px 24px;text-align:center}
-.mtg-ttl{font-size:.88rem;color:var(--gold);letter-spacing:.22em;margin-bottom:14px}
-.mtg-row{display:flex;justify-content:center;align-items:center;gap:28px;flex-wrap:wrap}
-.mtg-blk{text-align:center}
-.mtg-place{font-family:'Noto Serif JP',serif;font-size:clamp(1.3rem,3.5vw,2rem);font-weight:700}
-.mtg-time{font-family:'Noto Serif JP',serif;font-size:clamp(2rem,6vw,3.6rem);font-weight:700;color:var(--gold);line-height:1.1}
-.mtg-role{font-size:.82rem;color:rgba(255,255,255,.6);margin-top:2px}
-.mtg-arr{font-size:1.8rem;color:var(--gold);opacity:.5}
-
-/* ========== SECTION ========== */
-.sec{padding:76px 24px}
-.sec.bg-w{background:var(--white)}
-.sec.bg-o{background:var(--off)}
-.sec.bg-g{background:var(--gold-p)}
-.sec.bg-n{background:var(--navy-d);color:#fff}
-.sec-hd{text-align:center;margin-bottom:52px}
-.sec-ey{display:inline-block;color:var(--gold);font-size:.83rem;font-weight:700;letter-spacing:.26em;margin-bottom:10px}
-.sec-ey.wt{color:var(--gold-l)}
-.sec-ttl{font-family:'Noto Serif JP',serif;font-size:clamp(1.7rem,4.5vw,2.8rem);font-weight:700;color:var(--navy);line-height:1.3}
-.sec-ttl.wt{color:#fff}
-.sec-bar{width:56px;height:3px;background:var(--gold);margin:14px auto 0}
-
-/* ========== HIGHLIGHTS GRID ========== */
-.hl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;max-width:1060px;margin:0 auto}
-.hl-card{background:var(--white);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
-.hl-card:hover{transform:translateY(-7px);box-shadow:0 14px 40px rgba(0,0,0,.16)}
-.hl-card img{width:100%;height:210px;object-fit:cover}
-.hl-body{padding:18px 20px}
-.hl-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:var(--gold);color:var(--navy-d);font-weight:700;font-size:.9rem;border-radius:50%;margin-bottom:10px}
-.hl-name{font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:5px}
-.hl-desc{font-size:.86rem;color:var(--gray)}
-
-/* ========== DAY SECTIONS ========== */
-.day-banner{position:relative;height:62vh;min-height:360px;overflow:hidden;display:flex;align-items:flex-end}
-.day-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.day-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,34,.9) 0%,rgba(10,16,34,.18) 60%)}
-.day-ov.red{background:linear-gradient(to top,rgba(40,6,0,.92) 0%,rgba(40,6,0,.18) 60%)}
-.day-ov.pur{background:linear-gradient(to top,rgba(20,10,40,.92) 0%,rgba(20,10,40,.18) 60%)}
-.day-txt{position:relative;z-index:1;color:#fff;padding:40px 44px 48px}
-.day-ey{font-size:.82rem;letter-spacing:.36em;color:var(--gold-l);margin-bottom:8px}
-.day-h2{font-family:'Noto Serif JP',serif;font-size:clamp(2rem,5.5vw,3.8rem);font-weight:700;line-height:1.2;margin-bottom:12px}
-.day-tag{display:inline-block;background:var(--gold);color:var(--navy-d);font-size:.86rem;font-weight:700;padding:4px 20px;border-radius:20px}
-
-/* TIMELINE BAR */
-.tl-bar{background:var(--navy);padding:32px 28px}
-.tl-bar.red{background:#280600}
-.tl-bar.pur{background:#150930}
-.tl-bar h4{color:var(--gold);font-size:.8rem;letter-spacing:.22em;text-align:center;margin-bottom:18px}
-.tl-row{display:flex;overflow-x:auto;scrollbar-width:none;gap:0}
-.tl-row::-webkit-scrollbar{display:none}
-.tl-it{flex-shrink:0;min-width:130px;display:flex;flex-direction:column;align-items:center;position:relative}
-.tl-it:not(:last-child)::after{content:'';position:absolute;top:17px;left:calc(50% + 17px);width:calc(100% - 34px);height:2px;background:var(--gold);opacity:.35}
-.tl-dot{width:34px;height:34px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.95rem;margin-bottom:8px;z-index:1}
-.tl-dot.red{background:#c0392b}
-.tl-dot.pur{background:#7c5ccc}
-.tl-time{font-size:.75rem;color:var(--gold-l);margin-bottom:2px}
-.tl-lbl{font-size:.8rem;color:#fff;text-align:center;line-height:1.4;padding:0 3px}
-
-/* SPOT BLOCKS */
-.spots{max-width:1080px;margin:0 auto}
-.spot{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(0,0,0,.06)}
-.spot:last-child{border-bottom:none}
-.spot.rev{direction:rtl}
-.spot.rev>*{direction:ltr}
-.spot-img{overflow:hidden;min-height:360px}
-.spot-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
-.spot-img:hover img{transform:scale(1.05)}
-.spot-bd{padding:48px 54px;display:flex;flex-direction:column;justify-content:center;background:var(--white)}
-.spot-num{display:inline-block;font-size:.78rem;font-weight:700;color:var(--gold);letter-spacing:.12em;background:var(--gold-p);border:1px solid var(--gold-l);padding:3px 14px;border-radius:10px;margin-bottom:14px}
-.spot-name{font-family:'Noto Serif JP',serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:8px}
-.spot-catch{font-size:1rem;color:var(--gold);font-weight:600;margin-bottom:14px}
-.spot-desc{font-size:.96rem;color:var(--gray);line-height:2}
-
-/* SLIDER */
-.slider-wrap{background:var(--navy-d);padding:28px 0}
-.slider-wrap.red{background:#1e0800}
-.slider-wrap.pur{background:#110820}
-.slider-lbl{text-align:center;font-size:.8rem;color:var(--gold);letter-spacing:.2em;margin-bottom:14px}
-.slider{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 28px;cursor:grab}
-.slider::-webkit-scrollbar{display:none}
-.slider:active{cursor:grabbing}
-.sl-item{flex-shrink:0;width:clamp(240px,38vw,380px);scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative}
-.sl-item img{width:100%;height:230px;object-fit:cover;display:block}
-.sl-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(10,16,34,.85),transparent);color:#fff;padding:18px 14px 12px;font-size:.83rem}
-
-/* ========== GOURMET ========== */
-.gour-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;max-width:1060px;margin:0 auto}
-.gour-card{background:var(--white);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s}
-.gour-card:hover{transform:translateY(-5px)}
-.gour-card img{width:100%;height:210px;object-fit:cover}
-.gour-bd{padding:22px}
-.gour-tag{display:inline-block;background:var(--sak-l);color:var(--sakura);font-size:.76rem;font-weight:700;padding:3px 13px;border-radius:11px;margin-bottom:9px}
-.gour-name{font-family:'Noto Serif JP',serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:5px}
-.gour-desc{font-size:.88rem;color:var(--gray)}
-
-/* ========== 駅周辺 ========== */
-.eki-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;max-width:1060px;margin:0 auto}
-.eki-card{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:var(--white);transition:transform .3s}
-.eki-card:hover{transform:translateY(-5px)}
-.eki-card img{width:100%;height:190px;object-fit:cover}
-.eki-bd{padding:18px}
-.eki-cat{font-size:.75rem;color:var(--gold);font-weight:700;letter-spacing:.1em;margin-bottom:5px}
-.eki-name{font-family:'Noto Serif JP',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:4px}
-.eki-desc{font-size:.85rem;color:var(--gray)}
-
-/* ========== SOUVENIR ========== */
-.souv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:15px;max-width:1060px;margin:0 auto}
-.souv-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 3px 14px rgba(0,0,0,.08);text-align:center;transition:transform .3s}
-.souv-card:hover{transform:translateY(-4px)}
-.souv-card img{width:100%;height:125px;object-fit:cover}
-.souv-card p{padding:11px 8px;font-size:.86rem;font-weight:700;color:var(--navy)}
-
-/* ========== MAP ========== */
-.map-sec{background:var(--navy-d);padding:60px 24px;text-align:center}
-
-/* ========== お願い ========== */
-.onegai{background:linear-gradient(135deg,var(--navy-d),var(--navy-l));color:#fff;padding:80px 24px;text-align:center;position:relative;overflow:hidden}
-.onegai::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(200,168,75,.14),transparent 60%)}
-.onegai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px;max-width:860px;margin:44px auto;position:relative}
-.onegai-item{padding:34px 22px;border:1px solid rgba(200,168,75,.32);border-radius:18px;background:rgba(255,255,255,.05)}
-.onegai-n{font-family:'Noto Serif JP',serif;font-size:3.4rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:14px}
-.onegai-t{font-family:'Noto Serif JP',serif;font-size:1.15rem;font-weight:700;line-height:1.65}
-.onegai-final{font-family:'Noto Serif JP',serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:700;color:var(--gold);position:relative;margin-top:12px}
-
-/* ========== FOOTER ========== */
-footer{background:var(--navy-d);color:rgba(255,255,255,.55);text-align:center;padding:36px 24px;font-size:.86rem;border-top:1px solid rgba(200,168,75,.22)}
-footer strong{color:rgba(255,255,255,.85)}
-
-/* ========== ANIMATION ========== */
-.fu{opacity:0;transform:translateY(36px);transition:opacity .72s ease,transform .72s ease}
-.fu.on{opacity:1;transform:translateY(0)}
-.fu.d1{transition-delay:.13s}.fu.d2{transition-delay:.26s}.fu.d3{transition-delay:.39s}
-
-/* ========== RESPONSIVE ========== */
-@media(max-width:768px){
-  body{font-size:16px}
-  .spot{grid-template-columns:1fr}
-  .spot.rev{direction:ltr}
-  .spot-img{min-height:250px}
-  .spot-bd{padding:28px 22px}
-  .day-txt{padding:28px 22px 36px}
-  .sec{padding:56px 16px}
-  .mtg-arr{display:none}
-  .mtg-row{gap:18px}
+.nav a{
+  flex-shrink:0;padding:13px 18px;color:rgba(255,255,255,.78);font-size:.88rem;font-weight:700;
+  white-space:nowrap;border-bottom:3px solid transparent;transition:color .2s,border-color .2s,background .2s;
 }
-@media(max-width:480px){
-  .hl-grid{grid-template-columns:1fr}
-  .gour-grid{grid-template-columns:1fr}
+.nav a:hover,.nav a:focus-visible{color:var(--gold-soft);border-bottom-color:var(--gold);background:rgba(255,255,255,.06)}
+
+/* ============ HERO (cover) ============ */
+.hero{
+  position:relative;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;background:#e9ab9c;padding:60px 20px 40px;
+}
+.hero-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-content{position:relative;z-index:2;max-width:780px}
+.hero-badge{
+  display:inline-block;background:var(--navy);color:var(--gold-soft);font-size:.85rem;font-weight:700;
+  padding:6px 22px;border-radius:30px;letter-spacing:.08em;margin-bottom:22px;border:2px solid var(--border);
+  box-shadow:var(--shadow-sm);
+}
+.hero-tag{
+  font-size:clamp(1.1rem,3.4vw,1.6rem);color:var(--red-deep);font-weight:900;margin-bottom:10px;
+  transform:rotate(-2deg);display:inline-block;
+}
+.hero h1{
+  font-size:clamp(2.3rem,8.5vw,4.6rem);line-height:1.18;color:var(--ink);
+  text-shadow:3px 3px 0 rgba(255,255,255,.5);margin-bottom:10px;
+}
+.hero h1 .letter{display:inline-block;opacity:0;transform:translateY(24px) rotate(-6deg);animation:letterIn .55s cubic-bezier(.34,1.56,.64,1) forwards;}
+.hero-loc{
+  font-size:clamp(1.3rem,4vw,2.1rem);color:var(--red);letter-spacing:.15em;font-weight:900;margin-bottom:18px;
+}
+.hero-dates{
+  display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.55);border:2px solid var(--border);
+  border-radius:16px;padding:10px 24px;font-weight:700;font-size:clamp(1rem,2.6vw,1.25rem);margin-bottom:34px;
+  box-shadow:var(--shadow-sm);
+}
+.countdown{
+  display:inline-flex;flex-direction:column;align-items:center;gap:2px;background:var(--navy);color:#fff;
+  border:3px solid var(--border);border-radius:22px;padding:18px 46px;box-shadow:var(--shadow);
+}
+.cd-label{font-size:.95rem;opacity:.85;font-weight:700}
+.cd-num{font-size:clamp(3rem,10vw,5.4rem);font-weight:900;color:var(--gold);line-height:1}
+.cd-unit{font-size:1.05rem;opacity:.9}
+.scroll-cue{
+  position:relative;z-index:2;margin-top:30px;font-size:.85rem;color:var(--red-deep);font-weight:700;
+  animation:bob 2.1s ease-in-out infinite;
+}
+.dog-strip{position:absolute;bottom:6px;left:0;width:100%;height:56px;z-index:1;overflow:hidden;pointer-events:none}
+.dog-run{position:absolute;bottom:0;left:-120px;animation:dogrun 9s linear infinite}
+
+/* ============ SECTION / PAGE CARD ============ */
+.sec{padding:64px 18px}
+.sec.alt{background:var(--paper2)}
+.sec-inner{max-width:1040px;margin:0 auto}
+.page-card{
+  background:var(--paper);border:4px solid var(--border);border-radius:20px;box-shadow:var(--shadow);
+  padding:34px 30px;position:relative;
+}
+.page-badge{
+  position:absolute;top:-16px;right:22px;background:var(--navy);color:var(--gold-soft);font-weight:900;
+  font-size:.85rem;padding:8px 18px;border-radius:12px;border:2px solid var(--border);box-shadow:var(--shadow-sm);
+  transform:rotate(2deg);
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;color:var(--red);font-weight:900;font-size:.85rem;
+  letter-spacing:.12em;margin-bottom:8px;
+}
+.page-title{font-size:clamp(1.5rem,4.2vw,2.3rem);color:var(--ink);line-height:1.3;margin-bottom:6px}
+.hl{
+  background-image:linear-gradient(120deg,var(--gold-soft) 0%,var(--gold-soft) 100%);
+  background-repeat:no-repeat;background-size:0% 52%;background-position:0 88%;
+  transition:background-size 1s cubic-bezier(.2,.8,.2,1);padding:0 2px;border-radius:2px;
+}
+.hl.on{background-size:100% 52%}
+.title-rule{width:64px;height:4px;background:var(--red);border-radius:3px;margin:14px 0 22px}
+.lead{color:var(--ink);opacity:.85;font-size:1rem;margin-bottom:20px}
+
+/* meeting */
+.mtg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-bottom:24px}
+.mtg-item{background:#fff;border:2px solid var(--paper-deep);border-radius:14px;padding:16px 18px}
+.mtg-item .k{font-size:.82rem;font-weight:900;color:var(--red);margin-bottom:4px}
+.mtg-item .v{font-size:1.15rem;font-weight:700}
+.note-strip{
+  display:inline-block;background:var(--gold-soft);color:var(--red-deep);font-weight:900;padding:6px 18px;
+  border-radius:10px;transform:rotate(-1.5deg);margin:6px 0 20px;border:2px dashed var(--red-deep);
+}
+.rule-box{background:#fff;border:3px solid var(--red);border-radius:16px;overflow:hidden;margin-top:22px}
+.rule-head{background:var(--red);color:#fff;font-weight:900;padding:10px 20px;font-size:1rem}
+.rule-list{list-style:none;margin:0;padding:16px 22px}
+.rule-list li{padding:8px 4px;border-bottom:1px dashed var(--paper-deep);font-size:.98rem}
+.rule-list li:last-child{border-bottom:none}
+.rule-list li::before{content:'・';color:var(--red);font-weight:900;margin-right:4px}
+.contact-box{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--navy);color:#fff;border-radius:14px;
+  padding:16px 22px;margin-top:18px;
+}
+.contact-box .k{background:var(--red);padding:5px 14px;border-radius:20px;font-weight:900;font-size:.85rem}
+.contact-box .v{font-weight:700;font-size:1.05rem}
+
+/* SEAT CHART */
+.seat-wrap{overflow-x:auto;padding-bottom:6px}
+.seat-table{border-collapse:separate;border-spacing:6px;margin:0 auto}
+.seat-table caption{caption-side:top;font-weight:900;color:var(--navy);margin-bottom:10px;font-size:1rem}
+.seat-cell{
+  background:#fff;border:2px solid var(--paper-deep);border-radius:10px;min-width:76px;padding:8px 4px;
+  text-align:center;font-size:.85rem;font-weight:700;
+}
+.seat-cell.window{background:var(--gold-soft)}
+.seat-cell .n{display:block;font-size:.72rem;color:var(--red);font-weight:900}
+.seat-row-label{font-weight:900;color:var(--navy);text-align:center;padding:0 8px}
+.door-row td{text-align:center;background:var(--paper-deep);border-radius:8px;font-weight:900;color:var(--border);font-size:.8rem;padding:6px}
+.seat-note{margin-top:16px;font-size:.9rem;color:var(--ink);opacity:.85}
+
+/* TIMELINE */
+.rail{position:relative;padding-left:34px;margin-top:10px}
+.rail::before{
+  content:'';position:absolute;left:11px;top:6px;bottom:6px;width:3px;
+  background-image:linear-gradient(var(--border) 60%,transparent 0%);background-size:3px 12px;background-repeat:repeat-y;
+}
+.rail-item{position:relative;padding-bottom:26px}
+.rail-item:last-child{padding-bottom:0}
+.rail-dot{
+  position:absolute;left:-34px;top:0;width:26px;height:26px;border-radius:50%;background:var(--red);
+  border:3px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.8rem;
+  box-shadow:var(--shadow-sm);
+}
+.rail-time{font-size:1.15rem;font-weight:900;color:var(--red-deep)}
+.rail-place{font-size:1.08rem;font-weight:700;margin-top:2px}
+.rail-note{font-size:.9rem;opacity:.8;margin-top:3px}
+.stamp{
+  display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;font-weight:900;font-size:.78rem;
+  padding:4px 12px;border-radius:8px;margin-top:6px;transform:rotate(-3deg);border:2px solid var(--border);
+  opacity:0;
+}
+.stamp.on{animation:stampIn .5s cubic-bezier(.2,1.4,.5,1) forwards}
+.warn-strip{
+  display:inline-block;background:var(--gold-soft);color:var(--red-deep);font-weight:900;padding:5px 14px;
+  border-radius:8px;margin-top:6px;
+}
+.day-meals{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.meal-chip{background:#fff;border:2px solid var(--paper-deep);border-radius:20px;padding:5px 16px;font-size:.85rem;font-weight:700}
+.meal-chip b{color:var(--red)}
+
+/* SPOTS */
+.spot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:8px}
+.spot-card{background:#fff;border:2px solid var(--paper-deep);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s}
+.spot-card:hover{transform:translateY(-6px) rotate(-.5deg);box-shadow:var(--shadow)}
+.spot-illust{background:linear-gradient(160deg,var(--gold-soft),#fff);display:flex;align-items:center;justify-content:center;padding:20px;height:150px}
+.spot-body{padding:18px 20px 22px}
+.spot-name{font-size:1.2rem;font-weight:900;color:var(--navy)}
+.spot-kana{font-size:.78rem;color:var(--ink);opacity:.6;margin-bottom:8px}
+.spot-desc{font-size:.92rem;line-height:1.85}
+.spot-extra{
+  margin-top:12px;background:var(--gold-soft);border-radius:10px;padding:10px 14px;font-size:.85rem;font-weight:700;
+  color:var(--red-deep);
+}
+
+/* GOURMET / SOUVENIR CARDS w/ photos */
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px;margin-top:8px}
+.photo-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm);position:relative;transition:transform .3s,box-shadow .3s}
+.photo-card:hover{transform:translateY(-6px) rotate(.6deg);box-shadow:var(--shadow)}
+.photo-card::before{
+  content:'';position:absolute;top:-8px;left:24px;width:60px;height:22px;background:rgba(226,168,63,.55);
+  transform:rotate(-4deg);z-index:2;border:1px solid rgba(255,255,255,.5);
+}
+.photo-card img{width:100%;height:190px;object-fit:cover}
+.photo-body{padding:16px 18px 20px}
+.photo-tag{display:inline-block;background:var(--red);color:#fff;font-size:.72rem;font-weight:900;padding:3px 12px;border-radius:10px;margin-bottom:8px}
+.photo-name{font-size:1.1rem;font-weight:900;color:var(--navy);margin-bottom:6px}
+.photo-desc{font-size:.87rem;line-height:1.8;opacity:.88}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.tag-row span{background:var(--paper2);border:1px solid var(--paper-deep);border-radius:8px;padding:3px 10px;font-size:.76rem;font-weight:700}
+.info-line{font-size:.78rem;color:var(--red-deep);font-weight:700;margin-top:8px}
+
+/* small souvenir grid (no big desc) */
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+.mini-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);text-align:center;transition:transform .3s}
+.mini-card:hover{transform:translateY(-5px) scale(1.03)}
+.mini-card img{width:100%;height:120px;object-fit:cover}
+.mini-card p{padding:10px 8px;font-size:.85rem;font-weight:900;color:var(--navy)}
+
+/* ROOMS */
+.room-cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:720px){.room-cols{grid-template-columns:1fr}}
+.room-col-head{background:var(--green);color:#fff;font-weight:900;padding:10px 16px;border-radius:10px;margin-bottom:12px;font-size:.95rem}
+.room-grid{display:flex;flex-direction:column;gap:10px}
+.room-item{
+  display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--paper-deep);border-radius:12px;
+  padding:10px 14px;flex-wrap:wrap;
+}
+.room-letter{
+  width:34px;height:34px;flex-shrink:0;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:900;
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;border:2px solid var(--border);
+}
+.room-names{flex:1 1 140px;font-weight:700;font-size:.92rem}
+.room-num-wrap{display:flex;align-items:center;gap:6px}
+.room-num{
+  width:88px;border:2px solid var(--paper-deep);border-radius:8px;padding:6px 8px;font-family:inherit;font-size:.9rem;
+  font-weight:700;text-align:center;background:var(--paper2);color:var(--ink);
+}
+.room-num:focus{border-color:var(--red)}
+.save-check{font-size:.85rem;color:var(--green);font-weight:900;opacity:0}
+.save-check.on{animation:popCheck .6s ease forwards}
+.room-hotel-note{background:#fff;border:2px dashed var(--paper-deep);border-radius:12px;padding:12px 16px;font-size:.85rem;margin-top:16px}
+
+/* STAY GUIDE */
+.stay-card{background:#fff;border:2px solid var(--paper-deep);border-radius:16px;padding:20px 22px;margin-bottom:20px;position:relative;overflow:hidden}
+.stay-card h4{color:var(--navy);font-size:1.1rem;margin-bottom:10px}
+.bubbles{position:absolute;right:10px;bottom:0;width:70px;height:100%;pointer-events:none;opacity:.5}
+.bubble{position:absolute;bottom:-10px;border-radius:50%;background:var(--gold-soft);animation:rise 5s linear infinite}
+.onsen-time{font-size:.9rem;margin:4px 0}
+.onsen-time b{color:var(--red)}
+.howto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:14px}
+.howto-step{background:var(--paper2);border-radius:12px;padding:14px;text-align:center}
+.howto-num{
+  width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-weight:900;display:flex;
+  align-items:center;justify-content:center;margin:0 auto 8px;
+}
+.howto-step p{font-size:.82rem;line-height:1.6}
+
+/* icons */
+.ico{display:inline-flex;vertical-align:middle}
+.ico svg{display:block}
+
+/* fun floaters */
+.fab{
+  position:fixed;right:16px;bottom:16px;z-index:600;width:64px;height:64px;border-radius:50%;background:var(--gold);
+  border:3px solid var(--border);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:1.8rem;transition:transform .25s;
+}
+.fab:hover{transform:scale(1.08) rotate(-6deg)}
+.fab:active{transform:scale(.9)}
+.fab-bubble{
+  position:fixed;right:88px;bottom:26px;z-index:600;background:#fff;border:2px solid var(--border);border-radius:14px 14px 4px 14px;
+  padding:10px 16px;font-size:.88rem;font-weight:700;max-width:220px;box-shadow:var(--shadow-sm);opacity:0;
+  transform:translateY(6px) scale(.9);transition:opacity .3s,transform .3s;pointer-events:none;
+}
+.fab-bubble.show{opacity:1;transform:translateY(0) scale(1)}
+.top-btn{
+  position:fixed;left:16px;bottom:16px;z-index:600;background:var(--navy);color:#fff;border:3px solid var(--border);
+  border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  font-size:1.2rem;box-shadow:var(--shadow-sm);opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:opacity .3s,transform .3s;
+}
+.top-btn.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.confetti{position:fixed;width:9px;height:9px;z-index:700;pointer-events:none;top:-20px;border-radius:2px}
+
+/* reveal animation */
+.fu{opacity:0;transform:translateY(30px) scale(.98);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.fu.on{opacity:1;transform:translateY(0) scale(1)}
+
+/* footer */
+footer{background:var(--navy);color:rgba(255,255,255,.85);text-align:center;padding:40px 20px;font-size:.9rem}
+footer .foot-msg{font-size:1.3rem;font-weight:900;color:var(--gold);margin-bottom:14px}
+footer .foot-contact{margin-top:16px;font-size:.85rem;opacity:.75}
+
+/* keyframes */
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+@keyframes letterIn{to{opacity:1;transform:translateY(0) rotate(0)}}
+@keyframes dogrun{0%{left:-120px}100%{left:110%}}
+@keyframes stampIn{0%{opacity:0;transform:scale(2.6) rotate(-25deg)}70%{opacity:1;transform:scale(.9) rotate(-3deg)}100%{opacity:1;transform:scale(1) rotate(-3deg)}}
+@keyframes popCheck{0%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1.3)}100%{opacity:1;transform:scale(1)}}
+@keyframes rise{0%{transform:translateY(0);opacity:0}20%{opacity:.8}100%{transform:translateY(-180px);opacity:0}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+@keyframes cfall{to{transform:translateY(110vh) rotate(400deg);opacity:0}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  .dog-run{display:none}
+}
+
+@media(max-width:640px){
+  body{font-size:calc(16.5px * var(--fs-scale))}
+  .sec{padding:44px 12px}
+  .page-card{padding:26px 18px}
+  .room-cols{gap:16px}
 }
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">本文へスキップ</a>
 
-<!-- ====== HERO ====== -->
-<header class="hero">
-  <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-ov"></div>
-  <div class="hero-c">
-    <div class="hero-badge">有限会社大蔵プロセス</div>
-    <h1 class="hero-h1">大蔵プロセス<br>社員旅行 2026</h1>
-    <p class="hero-loc">IN 鹿 児 島</p>
-    <p class="hero-copy">驚きと喜びと感動を！！</p>
-    <p class="hero-dates">
-      2026年7月18日（土）〜 7月20日（月）<br>
-      鹿児島 2泊3日の旅
-    </p>
-    <div class="countdown">
-      <div class="cd-label">出発まであと</div>
-      <div class="cd-num" id="cdNum">--</div>
-      <div class="cd-unit">日</div>
-    </div>
-  </div>
-  <div class="scroll-arrow">スクロール</div>
-</header>
+<!-- ============ UTILITY BAR ============ -->
+<div class="util-bar">
+  <span class="lbl">🔎 文字の大きさ</span>
+  <button type="button" data-size="normal" aria-pressed="true">標準</button>
+  <button type="button" data-size="large" aria-pressed="false">大きめ</button>
+  <button type="button" data-size="xlarge" aria-pressed="false">特大</button>
+</div>
 
-<!-- ====== NAV ====== -->
-<nav class="nav">
+<!-- ============ NAV ============ -->
+<nav class="nav" aria-label="しおり目次">
   <div class="nav-inner">
-    <a href="#meeting">📍 集合</a>
-    <a href="#highlights">✨ 見どころ</a>
-    <a href="#day1">DAY 1</a>
-    <a href="#day2">DAY 2</a>
-    <a href="#day3">DAY 3</a>
-    <a href="#gourmet">🍽 グルメ</a>
-    <a href="#eki">🛒 駅周辺</a>
-    <a href="#souvenir">🛍 お土産</a>
-    <a href="#map">🗺 マップ</a>
-    <a href="#onegai">💛 お願い</a>
+    <a href="#meeting">📍集合</a>
+    <a href="#seats">🚄座席</a>
+    <a href="#day1">① 1日目</a>
+    <a href="#day2">② 2日目</a>
+    <a href="#day3">③ 3日目</a>
+    <a href="#shopping">🛍お買い物</a>
+    <a href="#souvenir">🎁お土産</a>
+    <a href="#rooms">🏠部屋割り</a>
+    <a href="#stay">♨️宿泊案内</a>
   </div>
 </nav>
 
-<!-- ====== 集合 ====== -->
-<div class="mtg" id="meeting">
-  <p class="mtg-ttl">── 集 合 情 報 ──</p>
-  <div class="mtg-row">
-    <div class="mtg-blk fu">
-      <div class="mtg-place">広島駅</div>
-      <div class="mtg-time">8:30</div>
-      <div class="mtg-role">集 合</div>
-    </div>
-    <div class="mtg-arr">→</div>
-    <div class="mtg-blk fu d1">
-      <div class="mtg-place">新幹線 出発</div>
-      <div class="mtg-time">8:42</div>
-      <div class="mtg-role">さくら543号</div>
-    </div>
-    <div class="mtg-arr">→</div>
-    <div class="mtg-blk fu d2">
-      <div class="mtg-place">鹿児島中央 着</div>
-      <div class="mtg-time">11:40</div>
-      <div class="mtg-role">観光バスへ乗り換え</div>
-    </div>
-  </div>
-</div>
+<main id="main">
 
-<!-- ====== 見どころ ====== -->
-<section class="sec bg-w" id="highlights">
-  <div class="sec-hd fu">
-    <div class="sec-ey">HIGHLIGHTS</div>
-    <h2 class="sec-ttl">今回の旅の見どころ</h2>
-    <div class="sec-bar"></div>
-  </div>
-  <div class="hl-grid">
-    <div class="hl-card fu">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Sengan-en_%284549036371%29.jpg" alt="仙巌園" loading="lazy">
-      <div class="hl-body">
-        <div class="hl-num">01</div>
-        <div class="hl-name">世界遺産 仙巌園</div>
-        <div class="hl-desc">桜島を借景にした薩摩藩主・島津家の別邸。国の特別名勝。</div>
-      </div>
-    </div>
-    <div class="hl-card fu d1">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Ibusuki-Sand-Bath.JPG" alt="砂むし温泉" loading="lazy">
-      <div class="hl-body">
-        <div class="hl-num">02</div>
-        <div class="hl-name">砂むし温泉</div>
-        <div class="hl-desc">日本唯一！天然の砂に包まれる指宿の名物温泉体験。</div>
-      </div>
-    </div>
-    <div class="hl-card fu d2">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Mount_Kaimondake_from_platform_of_Nishi-Oyama_Station_3.jpg" alt="西大山駅" loading="lazy">
-      <div class="hl-body">
-        <div class="hl-num">03</div>
-        <div class="hl-name">日本最南端の駅</div>
-        <div class="hl-desc">開聞岳を望むJR西大山駅。黄色いポストが旅人を迎える。</div>
-      </div>
-    </div>
-    <div class="hl-card fu">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Chiran-Bikeyashiki_08.jpg" alt="知覧武家屋敷" loading="lazy">
-      <div class="hl-body">
-        <div class="hl-num">04</div>
-        <div class="hl-name">知覧武家屋敷</div>
-        <div class="hl-desc">薩摩の小京都。石垣と庭園が続く江戸時代の武家町並み。</div>
-      </div>
-    </div>
-    <div class="hl-card fu d1">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Koisurubuta_shabu-shabu.jpg" alt="黒豚しゃぶしゃぶ" loading="lazy">
-      <div class="hl-body">
-        <div class="hl-num">05</div>
-        <div class="hl-name">黒豚しゃぶしゃぶ</div>
-        <div class="hl-desc">鹿児島が誇る黒豚料理。上品な旨みと柔らかさは格別。</div>
-      </div>
-    </div>
-    <div class="hl-card fu d2">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Arimura_Lava_Observatory_with_Sakurajia.jpg" alt="桜島" loading="lazy">
-      <div class="hl-body">
-        <div class="hl-num">06</div>
-        <div class="hl-name">桜島</div>
-        <div class="hl-desc">今も活動する活火山。有村溶岩展望所から大迫力の絶景を。</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <svg class="hero-svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f0bcae"/>
+        <stop offset="100%" stop-color="#e9ab9c"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="800" fill="url(#sky)"/>
+    <g style="animation:floaty 7s ease-in-out infinite">
+      <ellipse cx="190" cy="140" rx="110" ry="46" fill="#fff" opacity=".9"/>
+      <ellipse cx="270" cy="120" rx="80" ry="40" fill="#fff" opacity=".9"/>
+      <ellipse cx="120" cy="115" rx="70" ry="36" fill="#fff" opacity=".9"/>
+    </g>
+    <circle cx="1040" cy="120" r="70" fill="#f6dfa0" opacity=".9" style="animation:floaty 6s ease-in-out infinite"/>
+    <path d="M120,620 L360,340 L470,470 L560,300 L760,620 Z" fill="#4c6b3f" opacity=".92"/>
+    <path d="M470,470 L560,300 L620,400 L470,470 Z" fill="#3a5530" opacity=".9"/>
+    <g transform="translate(940,560)" opacity=".9">
+      <rect x="-6" y="0" width="12" height="70" fill="#b8402c"/>
+      <rect x="-46" y="0" width="92" height="12" fill="#b8402c"/>
+      <rect x="-40" y="-24" width="80" height="12" fill="#b8402c"/>
+      <rect x="-52" y="-24" width="10" height="14" fill="#b8402c"/>
+      <rect x="42" y="-24" width="10" height="14" fill="#b8402c"/>
+    </g>
+    <path d="M0,760 Q300,690 600,750 T1200,730 L1200,800 L0,800 Z" fill="#f3e9d2"/>
+  </svg>
 
-<!-- ====== DAY 1 ====== -->
-<section id="day1">
-  <div class="day-banner">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Sengan-en_%284549675312%29.jpg" alt="仙巌園"
-      onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/2/21/Sengan-en_%284549036371%29.jpg'" loading="lazy">
-    <div class="day-ov"></div>
-    <div class="day-txt">
-      <div class="day-ey">─── DAY 1 ───</div>
-      <h2 class="day-h2">世界遺産と砂むし温泉</h2>
-      <span class="day-tag">7月18日（土）</span>
+  <div class="hero-content">
+    <div class="hero-badge">有限会社大蔵プロセス</div>
+    <p class="hero-tag">驚きと喜びと感動を!! たのしい♪</p>
+    <h1 aria-label="大蔵プロセス in 鹿児島">
+      <span class="letter" style="animation-delay:.05s">大</span><span class="letter" style="animation-delay:.1s">蔵</span><span class="letter" style="animation-delay:.15s">プ</span><span class="letter" style="animation-delay:.2s">ロ</span><span class="letter" style="animation-delay:.25s">セ</span><span class="letter" style="animation-delay:.3s">ス</span><br>
+      <span class="letter" style="animation-delay:.4s">in</span> <span class="letter" style="animation-delay:.45s">鹿</span><span class="letter" style="animation-delay:.5s">児</span><span class="letter" style="animation-delay:.55s">島</span>
+    </h1>
+    <p class="hero-loc">社員旅行 2026</p>
+    <div class="hero-dates">🗓 2026年7月18日（土）〜7月20日（月）・2泊3日</div>
+    <br>
+    <div class="countdown">
+      <div class="cd-label" id="cdLabel">出発まであと</div>
+      <div class="cd-num" id="cdNum">--</div>
+      <div class="cd-unit" id="cdUnit">日</div>
     </div>
   </div>
-
-  <div class="tl-bar">
-    <h4>─ DAY 1 スケジュール ─</h4>
-    <div class="tl-row">
-      <div class="tl-it"><div class="tl-dot">🚄</div><div class="tl-time">8:42</div><div class="tl-lbl">広島駅<br>出発</div></div>
-      <div class="tl-it"><div class="tl-dot">🌿</div><div class="tl-time">午後</div><div class="tl-lbl">仙巌園<br>観光</div></div>
-      <div class="tl-it"><div class="tl-dot">🏛</div><div class="tl-time">午後</div><div class="tl-lbl">尚古集成館<br>見学</div></div>
-      <div class="tl-it"><div class="tl-dot">🚌</div><div class="tl-time">夕方</div><div class="tl-lbl">指宿へ<br>移動</div></div>
-      <div class="tl-it"><div class="tl-dot">🌡</div><div class="tl-time">夕方</div><div class="tl-lbl">砂むし<br>温泉体験</div></div>
-      <div class="tl-it"><div class="tl-dot">🏨</div><div class="tl-time">夜</div><div class="tl-lbl">指宿白水館<br>夕食・宿泊</div></div>
-    </div>
-  </div>
-
-  <div class="spots">
-    <div class="spot fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Sengan-en_%284549036371%29.jpg" alt="仙巌園庭園" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 1 — 01</span>
-        <h3 class="spot-name">仙巌園（磯庭園）</h3>
-        <p class="spot-catch">桜島と錦江湾を借景にした大名庭園</p>
-        <p class="spot-desc">江戸時代初期に島津家が造営した大名庭園。雄大な桜島を庭に取り込んだ景観は圧巻。世界文化遺産「明治日本の産業革命遺産」の構成資産。</p>
-      </div>
-    </div>
-    <div class="spot rev fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Kagoshima_Syuseikan.jpg" alt="尚古集成館" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 1 — 02</span>
-        <h3 class="spot-name">尚古集成館</h3>
-        <p class="spot-catch">幕末の産業革命を物語る世界遺産のレンガ建築</p>
-        <p class="spot-desc">1865年に造られた機械工場を活用した博物館。島津家の歴史資料や薩摩切子など、薩摩の技術・文化の粋が一堂に展示されています。</p>
-      </div>
-    </div>
-    <div class="spot fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Ibusuki-Sand-Bath.JPG" alt="砂むし温泉" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 1 — 03</span>
-        <h3 class="spot-name">砂むし温泉（指宿）</h3>
-        <p class="spot-catch">全国唯一！天然温泉が温めた砂に体を埋める</p>
-        <p class="spot-desc">海岸に湧き出る天然温泉の熱で温まった砂に体を埋める、指宿ならではの体験。じんわりポカポカ、デトックス効果も抜群！15分ほどで全身が温まります。</p>
-      </div>
-    </div>
-    <div class="spot rev fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/%E6%8C%87%E5%AE%BF%E6%B8%A9%E6%B3%89_%E6%97%85%E9%A4%A8_%E5%90%9F%E6%9D%BE_%285416180030%29.jpg" alt="指宿白水館 和室" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 1 — 宿泊</span>
-        <h3 class="spot-name">指宿白水館</h3>
-        <p class="spot-catch">南国・指宿の老舗旅館でゆったりと</p>
-        <p class="spot-desc">全国屈指の規模を誇る大浴場を有する指宿の名旅館。畳の和室でくつろぎ、豊富な温泉と鹿児島の郷土料理を存分に楽しみましょう。</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="slider-wrap">
-    <div class="slider-lbl">─── DAY 1 フォトギャラリー ───</div>
-    <div class="slider">
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Sengan-en_%284549036371%29.jpg" alt="仙巌園" loading="lazy"><div class="sl-cap">仙巌園の美しい庭園</div></div>
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Kagoshima_Syuseikan.jpg" alt="尚古集成館" loading="lazy"><div class="sl-cap">世界遺産・尚古集成館</div></div>
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Ibusuki-Sand-Bath.JPG" alt="砂むし温泉" loading="lazy"><div class="sl-cap">指宿の砂むし温泉</div></div>
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/%E6%8C%87%E5%AE%BF%E6%B8%A9%E6%B3%89_%E6%97%85%E9%A4%A8_%E5%90%9F%E6%9D%BE_%285416180030%29.jpg" alt="指宿旅館" loading="lazy"><div class="sl-cap">指宿温泉の旅館和室</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== DAY 2 ====== -->
-<section id="day2">
-  <div class="day-banner">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Chiran_22a.jpg" alt="知覧"
-      onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/3/38/Chiran-Bikeyashiki_08.jpg'" loading="lazy">
-    <div class="day-ov pur"></div>
-    <div class="day-txt">
-      <div class="day-ey">─── DAY 2 ───</div>
-      <h2 class="day-h2">薩摩の歴史と文化を巡る</h2>
-      <span class="day-tag" style="background:#7c5ccc;color:#fff">7月19日（日）</span>
-    </div>
-  </div>
-
-  <div class="tl-bar pur">
-    <h4>─ DAY 2 スケジュール ─</h4>
-    <div class="tl-row">
-      <div class="tl-it"><div class="tl-dot pur">🏨</div><div class="tl-time">午前</div><div class="tl-lbl">指宿白水館<br>朝食・出発</div></div>
-      <div class="tl-it"><div class="tl-dot pur">🚂</div><div class="tl-time">午前</div><div class="tl-lbl">西大山駅<br>最南端の駅</div></div>
-      <div class="tl-it"><div class="tl-dot pur">⛩</div><div class="tl-time">午前</div><div class="tl-lbl">釜蓋神社<br>参拝</div></div>
-      <div class="tl-it"><div class="tl-dot pur">🍱</div><div class="tl-time">昼</div><div class="tl-lbl">知覧にて<br>昼食</div></div>
-      <div class="tl-it"><div class="tl-dot pur">🏯</div><div class="tl-time">午後</div><div class="tl-lbl">知覧武家屋敷<br>散策</div></div>
-      <div class="tl-it"><div class="tl-dot pur">🕊</div><div class="tl-time">午後</div><div class="tl-lbl">知覧特攻<br>平和会館</div></div>
-      <div class="tl-it"><div class="tl-dot pur">🌆</div><div class="tl-time">夜</div><div class="tl-lbl">天文館<br>夕食・散策</div></div>
-    </div>
-  </div>
-
-  <div class="spots">
-    <div class="spot fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Mount_Kaimondake_from_platform_of_Nishi-Oyama_Station_3.jpg" alt="西大山駅" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 2 — 01</span>
-        <h3 class="spot-name">西大山駅</h3>
-        <p class="spot-catch">JR日本最南端の駅 ─ 開聞岳を仰ぐ絶景</p>
-        <p class="spot-desc">鹿児島県指宿市にあるJR最南端の駅。ホームから望む「薩摩富士」こと開聞岳は圧巻。黄色いポストに旅の思い出を投函するのが定番！</p>
-      </div>
-    </div>
-    <div class="spot rev fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Kagoshima_Wakamiya_Shrine.JPG" alt="釜蓋神社" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 2 — 02</span>
-        <h3 class="spot-name">釜蓋神社</h3>
-        <p class="spot-catch">釜蓋を頭にのせて参拝すると願いが叶う！</p>
-        <p class="spot-desc">正式名称「射楯兵主神社」。釜の蓋を頭にのせ、落とさずに鳥居をくぐると願いが叶うと言われる鹿児島のパワースポット。海に張り出した境内からの眺めも絶景！</p>
-      </div>
-    </div>
-    <div class="spot fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Chiran-Bikeyashiki_08.jpg" alt="知覧武家屋敷群" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 2 — 03</span>
-        <h3 class="spot-name">知覧武家屋敷群</h3>
-        <p class="spot-catch">薩摩の小京都 ─ 国の重要伝統的建造物群保存地区</p>
-        <p class="spot-desc">薩摩藩の外城制度のもと形成された武家屋敷群。石垣と生垣が続く美しい景観はまるでタイムスリップ。7つの庭園が国の名勝に指定されています。</p>
-      </div>
-    </div>
-    <div class="spot rev fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Chiran_Peace_Museum01.jpg" alt="知覧特攻平和会館" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 2 — 04</span>
-        <h3 class="spot-name">知覧特攻平和会館</h3>
-        <p class="spot-catch">若き命が紡いだ平和への願いに触れる</p>
-        <p class="spot-desc">第二次大戦末期に特攻基地が置かれた知覧。遺書・遺影・遺品が展示され、命の尊さと平和の大切さを改めて考えさせてくれます。静かに手を合わせましょう。</p>
-      </div>
-    </div>
-    <div class="spot fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Tenmonkan_Street_2011.JPG" alt="天文館" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 2 — 夜</span>
-        <h3 class="spot-name">天文館で夕食・散策</h3>
-        <p class="spot-catch">鹿児島最大の繁華街で夜を楽しもう</p>
-        <p class="spot-desc">九州最大級のアーケード街・天文館。黒豚しゃぶしゃぶや鹿児島ラーメンで大満足の夕食を。食後は名物「白くまアイス」も忘れずに！</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="slider-wrap pur">
-    <div class="slider-lbl">─── DAY 2 フォトギャラリー ───</div>
-    <div class="slider">
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Mount_Kaimondake_from_platform_of_Nishi-Oyama_Station_3.jpg" alt="西大山駅" loading="lazy"><div class="sl-cap">開聞岳を望む西大山駅</div></div>
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Chiran-Bikeyashiki_08.jpg" alt="知覧武家屋敷" loading="lazy"><div class="sl-cap">知覧武家屋敷群の石垣</div></div>
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Chiran_22a.jpg" alt="知覧の景観" loading="lazy"
-        onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/3/38/Chiran-Bikeyashiki_08.jpg'"><div class="sl-cap">知覧の美しい庭園</div></div>
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Chiran_Peace_Museum01.jpg" alt="知覧特攻平和会館" loading="lazy"><div class="sl-cap">知覧特攻平和会館</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== DAY 3 ====== -->
-<section id="day3">
-  <div class="day-banner">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Sakurajima-2.jpg" alt="桜島" loading="lazy">
-    <div class="day-ov red"></div>
-    <div class="day-txt">
-      <div class="day-ey">─── DAY 3 ───</div>
-      <h2 class="day-h2">桜島が生み出した大地の力</h2>
-      <span class="day-tag" style="background:#c0392b;color:#fff">7月20日（月）</span>
-    </div>
-  </div>
-
-  <div class="tl-bar red">
-    <h4>─ DAY 3 スケジュール ─</h4>
-    <div class="tl-row">
-      <div class="tl-it"><div class="tl-dot red">🏨</div><div class="tl-time">午前</div><div class="tl-lbl">ホテル<br>チェックアウト</div></div>
-      <div class="tl-it"><div class="tl-dot red">⛴</div><div class="tl-time">午前</div><div class="tl-lbl">桜島フェリー<br>乗船 (15分)</div></div>
-      <div class="tl-it"><div class="tl-dot red">🌋</div><div class="tl-time">午前</div><div class="tl-lbl">有村溶岩<br>展望所</div></div>
-      <div class="tl-it"><div class="tl-dot red">🍜</div><div class="tl-time">昼</div><div class="tl-lbl">桜島にて<br>昼食</div></div>
-      <div class="tl-it"><div class="tl-dot red">🛍</div><div class="tl-time">午後</div><div class="tl-lbl">お土産<br>ショッピング</div></div>
-      <div class="tl-it"><div class="tl-dot red">🚄</div><div class="tl-time">夕方</div><div class="tl-lbl">鹿児島中央<br>新幹線で帰路</div></div>
-    </div>
-  </div>
-
-  <div class="spots">
-    <div class="spot fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Sakurajima-2.jpg" alt="桜島" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 3 — 01</span>
-        <h3 class="spot-name">桜島フェリーで渡島</h3>
-        <p class="spot-catch">鹿児島市内から約15分 ─ 船上から見る桜島は格別</p>
-        <p class="spot-desc">24時間運航する桜島フェリーに乗って渡島。船上から間近に迫る桜島の迫力は圧倒的。錦江湾の潮風を感じながら最終日の旅が始まります。</p>
-      </div>
-    </div>
-    <div class="spot rev fu">
-      <div class="spot-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Arimura_Lava_Observatory_with_Sakurajia.jpg" alt="有村溶岩展望所" loading="lazy">
-      </div>
-      <div class="spot-bd">
-        <span class="spot-num">DAY 3 — 02</span>
-        <h3 class="spot-name">有村溶岩展望所</h3>
-        <p class="spot-catch">1946年の噴火が生み出した溶岩の大地</p>
-        <p class="spot-desc">昭和21年の噴火で流れ出た溶岩が広がる展望所。黒々とした溶岩の大地越しに望む桜島は、地球の力強さをまさに体感させてくれます。</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="slider-wrap red">
-    <div class="slider-lbl">─── DAY 3 フォトギャラリー ───</div>
-    <div class="slider">
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Sakurajima-2.jpg" alt="桜島" loading="lazy"><div class="sl-cap">錦江湾に浮かぶ桜島</div></div>
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Arimura_Lava_Observatory_with_Sakurajia.jpg" alt="有村溶岩展望所" loading="lazy"><div class="sl-cap">有村溶岩展望所からの眺め</div></div>
-      <div class="sl-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Koisurubuta_shabu-shabu.jpg" alt="しゃぶしゃぶ" loading="lazy"><div class="sl-cap">旅の締めくくり！絶品しゃぶしゃぶ</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== グルメ ====== -->
-<section class="sec bg-w" id="gourmet">
-  <div class="sec-hd fu">
-    <div class="sec-ey">GOURMET</div>
-    <h2 class="sec-ttl">旅のグルメ</h2>
-    <div class="sec-bar"></div>
-    <p style="color:var(--gray);margin-top:14px;font-size:.95rem">鹿児島の名店で本場の味を堪能しよう！</p>
-  </div>
-  <div class="gour-grid">
-    <div class="gour-card fu">
-      <img src="images/1kurokatsutei.jpg" alt="黒かつ亭" loading="lazy">
-      <div class="gour-bd">
-        <span class="gour-tag">黒豚とんかつ</span>
-        <div class="gour-name">黒かつ亭</div>
-        <div class="gour-desc">鹿児島産六白黒豚を使ったとんかつ専門店。外はサクサク、中はジューシーな絶品カツ。上品な甘みが口いっぱいに広がります。</div>
-      </div>
-    </div>
-    <div class="gour-card fu d1">
-      <img src="images/1kagoshimaramen.jpg" alt="鹿児島ラーメン" loading="lazy">
-      <div class="gour-bd">
-        <span class="gour-tag">鹿児島ラーメン</span>
-        <div class="gour-name">ラーメン豚とろ</div>
-        <div class="gour-desc">鹿児島ラーメンの名店。豚骨と鶏ガラのまろやかスープに、とろとろのチャーシューが絶品。鹿児島に来たら一度は食べたい一杯！</div>
-      </div>
-    </div>
-    <div class="gour-card fu d2">
-      <img src="images/1kagomania1.jpg" alt="カゴマニア" loading="lazy">
-      <div class="gour-bd">
-        <span class="gour-tag">郷土料理・居酒屋</span>
-        <div class="gour-name">カゴマニア</div>
-        <div class="gour-desc">鹿児島の食材にこだわった郷土料理とお酒が楽しめるお店。黒豚・きびなご・さつま揚げなど鹿児島の味が勢ぞろい！</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== 天文館・駅周辺のおすすめ ====== -->
-<section class="sec bg-o" id="eki">
-  <div class="sec-hd fu">
-    <div class="sec-ey">TENMONKAN &amp; KAGOSHIMA CHUO</div>
-    <h2 class="sec-ttl">天文館・駅周辺のおすすめ</h2>
-    <div class="sec-bar"></div>
-    <p style="color:var(--gray);margin-top:14px;font-size:.95rem">お買い物・グルメをもっと楽しむなら！</p>
-  </div>
-  <div class="eki-grid">
-    <div class="eki-card fu">
-      <img src="images/1kagomania2.jpg" alt="カゴマニア店内" loading="lazy">
-      <div class="eki-bd">
-        <div class="eki-cat">🍶 居酒屋</div>
-        <div class="eki-name">カゴマニア（店内）</div>
-        <div class="eki-desc">鹿児島の食材にこだわった郷土料理と豊富な焼酎が楽しめる。カウンターから賑やかなお店の雰囲気を満喫。</div>
-      </div>
-    </div>
-    <div class="eki-card fu d1">
-      <img src="images/1syoutyuuisinnkann.jpg" alt="焼酎一心館" loading="lazy">
-      <div class="eki-bd">
-        <div class="eki-cat">🍾 焼酎専門店</div>
-        <div class="eki-name">焼酎一心館</div>
-        <div class="eki-desc">鹿児島の焼酎を幅広く取り揃えた専門店。芋・麦・米など豊富な種類の中から自分好みの一本を。お土産にも最適！</div>
-      </div>
-    </div>
-    <div class="eki-card fu d2">
-      <img src="images/1satsumakiriko.jpg" alt="薩摩切子" loading="lazy">
-      <div class="eki-bd">
-        <div class="eki-cat">💎 工芸品</div>
-        <div class="eki-name">薩摩切子</div>
-        <div class="eki-desc">幕末に薩摩藩が生み出した色被せガラスの工芸品。グラデーションが美しい職人の逸品。特別な贈り物にも喜ばれます。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====== お土産 ====== -->
-<section class="sec bg-g" id="souvenir">
-  <div class="sec-hd fu">
-    <div class="sec-ey">SOUVENIR</div>
-    <h2 class="sec-ttl">おすすめお土産</h2>
-    <div class="sec-bar"></div>
-    <p style="color:var(--gray);margin-top:14px;font-size:.95rem">ご家族・ご友人へのお土産もお忘れなく！</p>
-  </div>
-  <div class="souv-grid">
-    <div class="souv-card fu">
-      <img src="images/0satsumaimotaruto.jpg" alt="さつまいもタルト" loading="lazy">
-      <p>さつまいもタルト</p>
-    </div>
-    <div class="souv-card fu d1">
-      <img src="images/0fesutexibaruraburi.jpg" alt="フェスティバロ" loading="lazy">
-      <p>フェスティバロ</p>
-    </div>
-    <div class="souv-card fu d2">
-      <img src="images/0tirantya.jpg" alt="知覧茶" loading="lazy">
-      <p>知覧茶</p>
-    </div>
-    <div class="souv-card fu">
-      <img src="images/0mikanjyamu.jpg" alt="みかんジャム" loading="lazy">
-      <p>みかんジャム</p>
-    </div>
-    <div class="souv-card fu d1">
-      <img src="images/0fure-ba-syoutyu.jpg" alt="フレーバー焼酎" loading="lazy">
-      <p>フレーバー焼酎</p>
-    </div>
-    <div class="souv-card fu d2">
-      <img src="images/0satumaage.jpg" alt="さつま揚げ" loading="lazy">
-      <p>さつま揚げ</p>
-    </div>
-    <div class="souv-card fu">
-      <img src="images/0toruyakarukannmannjyuu.jpg" alt="かるかん饅頭" loading="lazy">
-      <p>かるかん饅頭</p>
-    </div>
-    <div class="souv-card fu d1">
-      <img src="images/0kasutadon.jpg" alt="かすたどん" loading="lazy">
-      <p>かすたどん</p>
-    </div>
-  </div>
-</section>
-
-<!-- ====== マップ ====== -->
-<section class="map-sec" id="map">
-  <div class="sec-hd fu">
-    <div class="sec-ey wt">MAP</div>
-    <h2 class="sec-ttl wt">旅のルートマップ</h2>
-    <div class="sec-bar"></div>
-  </div>
-  <div class="fu" style="max-width:680px;margin:0 auto">
-    <svg viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-      <rect width="680" height="520" fill="#0d1526" rx="18"/>
-      <ellipse cx="340" cy="260" rx="270" ry="195" fill="#1a3060" opacity=".45"/>
-      <!-- 薩摩半島 -->
-      <path d="M310,78 L348,88 L378,118 L388,158 L383,208 L368,258 L348,318 L318,378 L288,418 L258,438 L228,428 L208,398 L218,358 L238,308 L248,258 L243,208 L248,158 L263,118 L283,93 Z" fill="#2d5a27" stroke="#3a7a34" stroke-width="1.5"/>
-      <!-- 大隅半島 -->
-      <path d="M408,138 L448,158 L478,198 L488,248 L478,298 L458,345 L433,380 L408,395 L388,385 L378,355 L383,305 L398,255 L403,205 L403,158 Z" fill="#2d5a27" stroke="#3a7a34" stroke-width="1.5"/>
-      <!-- 錦江湾 -->
-      <path d="M368,255 L383,205 L403,205 L398,255 L378,305 L358,335" fill="#1a3a8f" opacity=".55"/>
-      <!-- 桜島 -->
-      <path d="M383,238 L403,223 L423,228 L428,248 L418,268 L398,278 L381,268 Z" fill="#7a3520" stroke="#c0392b" stroke-width="1.5"/>
-      <text x="404" y="294" fill="#ff6b4a" font-size="10" text-anchor="middle" font-family="sans-serif">🌋桜島</text>
-      <!-- ルートライン -->
-      <path d="M333,158 Q328,238 288,368" stroke="#52b788" stroke-width="2.5" stroke-dasharray="6,4" fill="none" opacity=".8"/>
-      <path d="M288,368 Q263,388 253,408 Q258,368 278,308 Q298,228 333,158" stroke="#9b59b6" stroke-width="2.5" stroke-dasharray="6,4" fill="none" opacity=".8"/>
-      <path d="M333,158 Q358,188 383,238" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="6,4" fill="none" opacity=".8"/>
-      <!-- マーカー -->
-      <circle cx="333" cy="153" r="10" fill="#52b788" stroke="#fff" stroke-width="2"/>
-      <text x="333" y="138" fill="#fff" font-size="11" text-anchor="middle" font-family="sans-serif" font-weight="bold">仙巌園</text>
-      <circle cx="288" cy="368" r="10" fill="#52b788" stroke="#fff" stroke-width="2"/>
-      <text x="270" y="388" fill="#fff" font-size="11" text-anchor="start" font-family="sans-serif" font-weight="bold">指宿</text>
-      <circle cx="253" cy="413" r="8" fill="#9b59b6" stroke="#fff" stroke-width="2"/>
-      <text x="213" y="423" fill="#fff" font-size="10" text-anchor="start" font-family="sans-serif">西大山駅</text>
-      <circle cx="278" cy="308" r="8" fill="#9b59b6" stroke="#fff" stroke-width="2"/>
-      <text x="238" y="306" fill="#fff" font-size="10" text-anchor="start" font-family="sans-serif">知覧</text>
-      <circle cx="400" cy="263" r="8" fill="#e74c3c" stroke="#fff" stroke-width="2"/>
-      <text x="428" y="263" fill="#fff" font-size="10" text-anchor="start" font-family="sans-serif">有村溶岩展望所</text>
-      <!-- 凡例 -->
-      <rect x="18" y="418" width="178" height="90" fill="rgba(13,21,38,.82)" rx="10"/>
-      <text x="28" y="437" fill="#fff" font-size="11" font-family="sans-serif" font-weight="bold">ルート凡例</text>
-      <line x1="28" y1="456" x2="58" y2="456" stroke="#52b788" stroke-width="2.5" stroke-dasharray="6,4"/>
-      <text x="66" y="460" fill="#fff" font-size="10" font-family="sans-serif">DAY 1</text>
-      <line x1="28" y1="474" x2="58" y2="474" stroke="#9b59b6" stroke-width="2.5" stroke-dasharray="6,4"/>
-      <text x="66" y="478" fill="#fff" font-size="10" font-family="sans-serif">DAY 2</text>
-      <line x1="28" y1="492" x2="58" y2="492" stroke="#e74c3c" stroke-width="2.5" stroke-dasharray="6,4"/>
-      <text x="66" y="496" fill="#fff" font-size="10" font-family="sans-serif">DAY 3</text>
-      <text x="340" y="34" fill="#c8a84b" font-size="15" text-anchor="middle" font-family="sans-serif" font-weight="bold">鹿児島 観光ルートマップ</text>
+  <div class="scroll-cue">▼ しおりを見る</div>
+  <div class="dog-strip" aria-hidden="true">
+    <svg class="dog-run" width="90" height="50" viewBox="0 0 90 50" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="42" cy="30" rx="26" ry="14" fill="#a9743f"/>
+      <circle cx="70" cy="20" r="12" fill="#a9743f"/>
+      <ellipse cx="76" cy="14" rx="4" ry="7" fill="#a9743f" transform="rotate(20 76 14)"/>
+      <circle cx="74" cy="18" r="1.6" fill="#2c2015"/>
+      <path d="M16,32 L6,42 M22,34 L14,46 M58,34 L64,46 M64,32 L72,42" stroke="#2c2015" stroke-width="4" stroke-linecap="round"/>
+      <path d="M18,26 Q4,20 2,30" stroke="#2c2015" stroke-width="4" fill="none" stroke-linecap="round"/>
     </svg>
   </div>
+</header>
+
+<!-- ============ 集合情報 ============ -->
+<section class="sec" id="meeting">
+  <div class="sec-inner">
+    <div class="page-card fu">
+      <div class="page-badge">広島駅 8:30集合</div>
+      <div class="eyebrow">📍 MEETING POINT / 7.18</div>
+      <h2 class="page-title">朝の<span class="hl">集合場所</span></h2>
+      <div class="title-rule"></div>
+      <div class="note-strip">集合場所は去年と同じ！</div>
+      <div class="mtg-grid">
+        <div class="mtg-item"><div class="k">ご集合時間</div><div class="v">午前8時30分集合</div></div>
+        <div class="mtg-item"><div class="k">ご集合場所</div><div class="v">広島駅 新幹線口2階 ペデストリアンデッキ（中央サークル）</div></div>
+        <div class="mtg-item"><div class="k">ご利用新幹線</div><div class="v">JR広島駅　みずほ605号　午前9時11分発</div></div>
+      </div>
+
+      <div class="rule-box">
+        <div class="rule-head">旅の注意事項</div>
+        <ul class="rule-list">
+          <li>社員旅行の目的（慰安・慰労・親睦）を忘れない。</li>
+          <li>社員旅行企画チームへの協力をお願い致します。</li>
+          <li>旅行を楽しむ努力は惜しまない。</li>
+          <li>集合時間厳守（5分前行動）。</li>
+          <li>集団行動から離れる場合は必ず誰かに声をかけてください。</li>
+          <li>単独行動は禁止とします。必ず誰かと一緒に行動してください。</li>
+          <li>観光地のため貴重品の盗難や忘れ物には各自管理をお願いします。</li>
+        </ul>
+      </div>
+      <div class="contact-box">
+        <span class="k">当日緊急連絡先</span>
+        <span class="v">JTB広島支店　竹中 遼真　TEL 080-6318-9324</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- ====== 旅を楽しむ3つのお願い ====== -->
-<section class="onegai" id="onegai">
-  <div class="sec-hd fu" style="position:relative">
-    <div class="sec-ey wt">FROM ALL OF US</div>
-    <h2 class="sec-ttl wt">旅を楽しむ<br>3つのお願い</h2>
-    <div class="sec-bar"></div>
+<!-- ============ 座席表 ============ -->
+<section class="sec alt" id="seats">
+  <div class="sec-inner">
+    <div class="page-card fu">
+      <div class="page-badge">4号車</div>
+      <div class="eyebrow">🚄 SHINKANSEN SEATS</div>
+      <h2 class="page-title">新幹線の<span class="hl">座席表</span></h2>
+      <div class="title-rule"></div>
+      <p class="lead">配席は行き・帰り共通。座席は進行方向に回転するのでどちら向きでも全員前向きです。</p>
+
+      <div class="seat-wrap">
+        <table class="seat-table">
+          <caption>往路｜みずほ605号　7/18（土）広島9:11 → 鹿児島中央11:36　（進行方向：広島→鹿児島中央）</caption>
+          <tbody id="seatOutbound"></tbody>
+        </table>
+      </div>
+      <p class="seat-note">往路は32席（1〜8列）。添乗員さまのお席は当日確定です。</p>
+
+      <div class="seat-wrap" style="margin-top:28px">
+        <table class="seat-table">
+          <caption>復路｜さくら768号　7/20（月）鹿児島中央14:17 → 広島16:51　（進行方向：鹿児島中央→広島）</caption>
+          <tbody id="seatReturn"></tbody>
+        </table>
+      </div>
+      <p class="seat-note">復路は33席。1〜8列に加えて9A＝添乗員さまです。</p>
+    </div>
   </div>
-  <div class="onegai-grid">
-    <div class="onegai-item fu">
-      <div class="onegai-n">①</div>
-      <div class="onegai-t">仲間との<br>時間を楽しもう</div>
-    </div>
-    <div class="onegai-item fu d1">
-      <div class="onegai-n">②</div>
-      <div class="onegai-t">たくさん<br>写真を撮ろう</div>
-    </div>
-    <div class="onegai-item fu d2">
-      <div class="onegai-n">③</div>
-      <div class="onegai-t">最高の<br>思い出を作ろう</div>
-    </div>
-  </div>
-  <div class="onegai-final fu">驚きと喜びと感動を！！</div>
-  <p style="margin-top:22px;color:rgba(255,255,255,.55);font-size:.88rem;position:relative">
-    ─ 有限会社大蔵プロセス 社員旅行2026 ─
-  </p>
 </section>
 
-<!-- ====== FOOTER ====== -->
+<!-- ============ DAY 1 ============ -->
+<section class="sec" id="day1">
+  <div class="sec-inner">
+    <div class="page-card fu">
+      <div class="page-badge">7月18日（土）</div>
+      <div class="eyebrow">🚄 SCHEDULE / DAY 1</div>
+      <h2 class="page-title">1日目の<span class="hl">予定</span></h2>
+      <div class="title-rule"></div>
+      <div class="day-meals">
+        <span class="meal-chip">朝 <b>ー</b></span>
+        <span class="meal-chip">昼 <b>○</b></span>
+        <span class="meal-chip">夕 <b>○</b>　18:30〜宴会</span>
+      </div>
+
+      <div class="rail">
+        <div class="rail-item fu"><div class="rail-dot">🚉</div><div class="rail-time">8:30</div><div class="rail-place">広島駅 集合</div></div>
+        <div class="rail-item fu"><div class="rail-dot">🚄</div><div class="rail-time">9:11</div><div class="rail-place">広島駅 出発（みずほ605号）</div></div>
+        <div class="rail-item fu"><div class="rail-dot">🚉</div><div class="rail-time">11:36</div><div class="rail-place">鹿児島中央駅 到着</div></div>
+        <div class="rail-item fu"><div class="rail-dot">🚌</div><div class="rail-time">11:50</div><div class="rail-place">鹿児島中央駅 出発</div></div>
+        <div class="rail-item fu">
+          <div class="rail-dot">🌿</div><div class="rail-time">12:10</div>
+          <div class="rail-place">仙巌園・尚古集成館（昼食）</div>
+          <div class="stamp js-stamp">📷 ここで集合写真</div>
+        </div>
+        <div class="rail-item fu"><div class="rail-dot">🚌</div><div class="rail-time">14:00</div><div class="rail-place">バス出発</div><div class="rail-note">道中コンビニ立寄</div></div>
+        <div class="rail-item fu">
+          <div class="rail-dot">♨️</div><div class="rail-time">15:45</div>
+          <div class="rail-place">指宿白水館 到着（泊）</div>
+          <div class="rail-note">各自、砂風呂、温泉など楽しんでください。</div>
+        </div>
+        <div class="rail-item fu">
+          <div class="rail-dot">🍶</div><div class="rail-time">18:30</div>
+          <div class="rail-place">宴会</div>
+          <div class="stamp js-stamp">🎉 宴会場＝桃（薩摩客殿3階）18時開場</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-card fu" style="margin-top:26px">
+      <div class="page-badge">1日目</div>
+      <div class="eyebrow">🗻 SIGHTSEEING / DAY 1</div>
+      <h2 class="page-title"><span class="hl">観光案内</span></h2>
+      <div class="title-rule"></div>
+      <div class="spot-grid">
+        <div class="spot-card fu">
+          <div class="spot-illust">
+            <svg width="120" height="90" viewBox="0 0 120 90" aria-hidden="true"><path d="M10,80 L45,30 L65,55 L85,20 L110,80Z" fill="#4c6b3f"/><rect x="18" y="60" width="34" height="20" fill="#b8402c"/><rect x="24" y="68" width="8" height="12" fill="#2c2015"/><ellipse cx="90" cy="34" rx="14" ry="8" fill="#233450"/></svg>
+          </div>
+          <div class="spot-body">
+            <div class="spot-name">仙巌園・尚古集成館</div>
+            <div class="spot-kana">せんがんえん・しょうこしゅうせいかん</div>
+            <p class="spot-desc">雄大な桜島と錦江湾を借景にした壮麗な大名庭園で、島津家の別邸として築かれた歴史ある名園です。江戸時代の風格を伝える御殿をはじめ、近代化の礎となった集成館事業の遺構を活用した尚古集成館（世界文化遺産「明治日本の産業革命遺産」の構成資産）や、薩摩切子の工房など、歴史と文化を体感できるスポットが点在しています。</p>
+          </div>
+        </div>
+        <div class="spot-card fu">
+          <div class="spot-illust">
+            <svg width="120" height="90" viewBox="0 0 120 90" aria-hidden="true"><rect x="20" y="30" width="80" height="45" fill="#f6dfa0" stroke="#2c2015" stroke-width="2"/><path d="M12,30 L60,10 L108,30Z" fill="#b8402c"/><circle cx="60" cy="55" r="10" fill="#233450"/></svg>
+          </div>
+          <div class="spot-body">
+            <div class="spot-name">指宿白水館</div>
+            <div class="spot-kana">いぶすき はくすいかん</div>
+            <p class="spot-desc">松の緑と錦江湾の青に包まれた、伝統的な和の佇まいの宿。広大な敷地に砂むし温泉や元禄風呂を備え、ゆったりと寛げます。</p>
+            <div class="spot-extra">🐻 2次会会場 ▶ 白水館B1F「クラブ鹿鳴館」みんなで集合！二次会もぜひご参加ください</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DAY 2 ============ -->
+<section class="sec alt" id="day2">
+  <div class="sec-inner">
+    <div class="page-card fu">
+      <div class="page-badge">7月19日（日）</div>
+      <div class="eyebrow">⛩ SCHEDULE / DAY 2</div>
+      <h2 class="page-title">2日目の<span class="hl">予定</span></h2>
+      <div class="title-rule"></div>
+      <div class="day-meals">
+        <span class="meal-chip">朝 <b>○</b></span>
+        <span class="meal-chip">昼 <b>○</b></span>
+        <span class="meal-chip">夕 <b>○</b>　18:30〜</span>
+      </div>
+      <div class="note-strip">朝食はルビー（薩摩客殿7階）にて7:00〜8:30の間にどうぞ</div>
+
+      <div class="rail">
+        <div class="rail-item fu"><div class="rail-dot">🚌</div><div class="rail-time">9:00</div><div class="rail-place">ホテル 出発</div></div>
+        <div class="rail-item fu">
+          <div class="rail-dot">🚂</div><div class="rail-time">9:30</div>
+          <div class="rail-place">JR西大山駅（JR最南端の駅）</div>
+          <div class="stamp js-stamp">📷 ここで集合写真</div>
+        </div>
+        <div class="rail-item fu"><div class="rail-dot">🚌</div><div class="rail-time">10:00</div><div class="rail-place">バス出発</div></div>
+        <div class="rail-item fu"><div class="rail-dot">⛩</div><div class="rail-time">10:30</div><div class="rail-place">釜蓋神社</div></div>
+        <div class="rail-item fu"><div class="rail-dot">🚌</div><div class="rail-time">11:30</div><div class="rail-place">バス出発</div></div>
+        <div class="rail-item fu"><div class="rail-dot">🍱</div><div class="rail-time">12:00</div><div class="rail-place">薩摩知覧武家屋敷「高城庵」（昼食）</div></div>
+        <div class="rail-item fu"><div class="rail-dot">🏯</div><div class="rail-time">13:10</div><div class="rail-place">知覧武家屋敷／知覧特攻平和会館</div><div class="rail-note">※2つの見学コースあり（下記参照）</div></div>
+        <div class="rail-item fu"><div class="rail-dot">🚌</div><div class="rail-time">15:30</div><div class="rail-place">バス出発</div></div>
+        <div class="rail-item fu">
+          <div class="rail-dot">🏨</div><div class="rail-time">16:30</div>
+          <div class="rail-place">ダイワロイネットホテル天文館（泊）</div>
+          <div class="rail-note">ホテル周辺にコンビニあり（夜食・お買い物は各自で）</div>
+        </div>
+        <div class="rail-item fu"><div class="rail-dot">🔔</div><div class="rail-time">18:20</div><div class="rail-place">フロント集合</div></div>
+        <div class="rail-item fu">
+          <div class="rail-dot">🐷</div><div class="rail-time">18:30</div>
+          <div class="rail-place">夕食「さつま路」</div>
+          <div class="rail-note">郷土料理　黒豚しゃぶしゃぶ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-card fu" style="margin-top:26px">
+      <div class="page-badge">2日目</div>
+      <div class="eyebrow">⛩ SIGHTSEEING / DAY 2</div>
+      <h2 class="page-title"><span class="hl">観光案内</span></h2>
+      <div class="title-rule"></div>
+      <div class="spot-grid">
+        <div class="spot-card fu">
+          <div class="spot-illust">
+            <svg width="90" height="90" viewBox="0 0 90 90" aria-hidden="true"><rect x="10" y="20" width="8" height="60" fill="#b8402c"/><rect x="72" y="20" width="8" height="60" fill="#b8402c"/><rect x="4" y="18" width="82" height="10" fill="#b8402c"/><rect x="14" y="32" width="62" height="8" fill="#b8402c"/></svg>
+          </div>
+          <div class="spot-body">
+            <div class="spot-name">釜蓋神社</div>
+            <p class="spot-desc">入り江の岩礁に鎮座する、開運・勝負運の神社（正式名称「射楯兵主神社」）。釜の蓋を頭に載せ、鳥居から拝殿まで落とさず歩いて祈願するユニークな参拝で知られ、「願いが叶う」とスポーツ選手や著名人も訪れる人気のパワースポットです。</p>
+          </div>
+        </div>
+        <div class="spot-card fu">
+          <div class="spot-illust">
+            <svg width="110" height="90" viewBox="0 0 110 90" aria-hidden="true"><rect x="10" y="40" width="26" height="30" fill="#f6dfa0" stroke="#2c2015" stroke-width="2"/><rect x="42" y="30" width="26" height="40" fill="#f6dfa0" stroke="#2c2015" stroke-width="2"/><rect x="74" y="44" width="26" height="26" fill="#f6dfa0" stroke="#2c2015" stroke-width="2"/><circle cx="23" cy="26" r="10" fill="#4c6b3f"/><circle cx="55" cy="18" r="12" fill="#4c6b3f"/><circle cx="87" cy="30" r="9" fill="#4c6b3f"/></svg>
+          </div>
+          <div class="spot-body">
+            <div class="spot-name">知覧武家屋敷</div>
+            <div class="spot-kana">国の名勝・重要伝統的建造物群保存地区</div>
+            <p class="spot-desc">江戸時代の薩摩藩の面影を残す武家屋敷群。母ヶ岳を借景にした七つの名勝庭園が連なり、「薩摩の小京都」と呼ばれる町並みが今も保存されています。生垣と石垣の通りに、武士の暮らしと洗練された庭づくりの美意識が息づきます。</p>
+          </div>
+        </div>
+        <div class="spot-card fu">
+          <div class="spot-illust">
+            <svg width="110" height="80" viewBox="0 0 110 80" aria-hidden="true"><path d="M6,58 L104,58 L96,66 L14,66 Z" fill="#233450"/><path d="M14,58 L96,58 L86,30 Q55,18 24,30 Z" fill="#7a8ba0"/><circle cx="55" cy="20" r="8" fill="#7a8ba0"/></svg>
+          </div>
+          <div class="spot-body">
+            <div class="spot-name">知覧特攻平和会館</div>
+            <div class="spot-kana">いのちと平和を見つめる</div>
+            <p class="spot-desc">大戦末期、この地から多くの特攻隊員が出撃しました。隊員たちの遺書や手紙、遺品、実物の戦闘機などを展示し、若い命が遺した言葉を静かに伝えています。「特攻の母」と慕われた鳥濱トメさんゆかりの資料もあり、平和の尊さを見つめ直す場所です。</p>
+          </div>
+        </div>
+      </div>
+      <div class="rule-box" style="margin-top:24px;border-color:var(--green)">
+        <div class="rule-head" style="background:var(--green)">見学コース（2コースあり）</div>
+        <ul class="rule-list">
+          <li><b>①特攻平和会館 2時間コース</b>：昼食後、バスでご案内。</li>
+          <li><b>②1時間コース・武家屋敷コース</b>：昼食後、武家屋敷を散策し、その後バスでご案内。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DAY 3 ============ -->
+<section class="sec" id="day3">
+  <div class="sec-inner">
+    <div class="page-card fu">
+      <div class="page-badge">7月20日（月）</div>
+      <div class="eyebrow">⛴ SCHEDULE / DAY 3</div>
+      <h2 class="page-title">3日目の<span class="hl">予定</span></h2>
+      <div class="title-rule"></div>
+      <div class="day-meals">
+        <span class="meal-chip">朝 <b>○</b></span>
+        <span class="meal-chip">昼 <b>ー</b></span>
+        <span class="meal-chip">夕 <b>ー</b></span>
+      </div>
+      <div class="note-strip">朝食は15F最上階「黒ノ壽」にて6:30〜8:00の間にどうぞ</div>
+
+      <div class="rail">
+        <div class="rail-item fu"><div class="rail-dot">🚌</div><div class="rail-time">8:30</div><div class="rail-place">ホテル 出発</div></div>
+        <div class="rail-item fu"><div class="rail-dot">⚓</div><div class="rail-time">8:45</div><div class="rail-place">鹿児島港 到着</div></div>
+        <div class="rail-item fu"><div class="rail-dot">⛴</div><div class="rail-time">9:00</div><div class="rail-place">鹿児島港 出発（フェリー）</div></div>
+        <div class="rail-item fu"><div class="rail-dot">⚓</div><div class="rail-time">9:15</div><div class="rail-place">桜島港 到着</div></div>
+        <div class="rail-item fu">
+          <div class="rail-dot">🌋</div><div class="rail-time">9:40</div>
+          <div class="rail-place">有村溶岩展望所</div>
+          <div class="stamp js-stamp">📷 ここで集合写真</div>
+        </div>
+        <div class="rail-item fu"><div class="rail-dot">🚌</div><div class="rail-time">10:25</div><div class="rail-place">バス出発</div></div>
+        <div class="rail-item fu"><div class="rail-dot">⚓</div><div class="rail-time">10:50</div><div class="rail-place">桜島港 到着</div></div>
+        <div class="rail-item fu"><div class="rail-dot">⛴</div><div class="rail-time">11:05</div><div class="rail-place">桜島港 出発（フェリー）</div></div>
+        <div class="rail-item fu"><div class="rail-dot">⚓</div><div class="rail-time">11:20</div><div class="rail-place">鹿児島港 到着</div></div>
+        <div class="rail-item fu"><div class="rail-dot">🍽</div><div class="rail-time">11:40</div><div class="rail-place">鹿児島中央駅</div><div class="rail-note">各自、昼食とお買い物</div></div>
+        <div class="rail-item fu">
+          <div class="rail-dot">⏰</div><div class="rail-time">13:50</div>
+          <div class="rail-place">新幹線改札前 集合</div>
+          <div class="warn-strip">⚠️ 時間厳守！乗り遅れ注意！</div>
+        </div>
+        <div class="rail-item fu"><div class="rail-dot">🚄</div><div class="rail-time">14:17</div><div class="rail-place">鹿児島中央駅 出発（さくら768号）</div></div>
+        <div class="rail-item fu"><div class="rail-dot">🎉</div><div class="rail-time">16:51</div><div class="rail-place">広島駅 到着　おつかれさまでした！</div></div>
+      </div>
+    </div>
+
+    <div class="page-card fu" style="margin-top:26px">
+      <div class="page-badge">3日目</div>
+      <div class="eyebrow">🌋 SIGHTSEEING / DAY 3</div>
+      <h2 class="page-title"><span class="hl">観光案内</span></h2>
+      <div class="title-rule"></div>
+      <div class="spot-grid">
+        <div class="spot-card fu">
+          <div class="spot-illust">
+            <svg width="120" height="90" viewBox="0 0 120 90" aria-hidden="true"><path d="M20,80 Q45,25 70,80 Q80,60 100,80" fill="#7a3520" stroke="#b8402c" stroke-width="2"/><circle cx="70" cy="20" r="10" fill="#9b6a52" opacity=".8"/><circle cx="82" cy="14" r="7" fill="#9b6a52" opacity=".6"/></svg>
+          </div>
+          <div class="spot-body">
+            <div class="spot-name">有村溶岩展望所</div>
+            <p class="spot-desc">大正・昭和の溶岩原の上に整備された遊歩道を歩きながら、錦江湾越しに雄大な桜島や開聞岳を360度の大パノラマで望めます。一帯は1914（大正3）年の大噴火などで形づくられたダイナミックな景観で、火山の力強さを間近に体感できる貴重なスポット。タイミングによってはゴーッと響く噴火音や噴煙の様子を目の当たりにでき、その迫力は圧巻です。</p>
+          </div>
+        </div>
+        <div class="spot-card fu">
+          <div class="spot-illust">
+            <svg width="120" height="80" viewBox="0 0 120 80" aria-hidden="true"><path d="M10,50 L110,50 L100,64 L20,64Z" fill="#233450"/><rect x="45" y="20" width="30" height="30" fill="#f6dfa0" stroke="#2c2015" stroke-width="2"/><path d="M55,50 L55,30 M65,50 L65,30" stroke="#2c2015" stroke-width="2"/></svg>
+          </div>
+          <div class="spot-body">
+            <div class="spot-name">この日の移動：桜島フェリー</div>
+            <p class="spot-desc">鹿児島港⇄桜島港はフェリーで約15分の船旅。デッキからの錦江湾の眺めもお楽しみください。</p>
+            <div class="spot-extra">🍜 やぶ金うどん：桜島フェリー船内にある、素朴な味のうどん・そば屋。約15分の船旅で食べきれるよう、注文すればすぐ出来上がります。潮風に吹かれ、桜島を眺めながら（噴火するかも！？）味わううどんは美味しさ倍増です！</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ お買い物・ランチ（中央駅周辺） ============ -->
+<section class="sec alt" id="shopping">
+  <div class="sec-inner">
+    <div class="page-card fu">
+      <div class="page-badge">中央駅周辺</div>
+      <div class="eyebrow">🛍 SHOPPING</div>
+      <h2 class="page-title">お<span class="hl">買い物</span></h2>
+      <div class="title-rule"></div>
+      <div class="photo-grid">
+        <div class="photo-card fu">
+          <img src="images/1syoutyuuisinnkann.jpg" alt="焼酎維新館" loading="lazy">
+          <div class="photo-body">
+            <span class="photo-tag">焼酎専門店</span>
+            <div class="photo-name">焼酎維新館</div>
+            <p class="photo-desc">芋・黒糖焼酎メーカーの協力で多数の銘柄を品揃えする、焼酎文化の発信基地。鹿児島の食品やお菓子もあり、お土産やだいやめ（晩酌）のおつまみに最適。併設の角打ち（立ち飲み）は1杯330円〜でビール・焼酎・清酒・ワインが楽しめます。</p>
+            <div class="info-line">アミュプラザ鹿児島 本館B1F（中央駅直結）／営業10:00〜20:00／角打ち12:00〜20:00（L.O.19:30）</div>
+          </div>
+        </div>
+        <div class="photo-card fu">
+          <img src="images/1kagomania1.jpg" alt="カゴマニア" loading="lazy">
+          <div class="photo-body">
+            <span class="photo-tag">ご当地グッズ</span>
+            <div class="photo-name">カゴマニア</div>
+            <p class="photo-desc">店名は「鹿児島マニア」が由来。オーナー脇さんが手がける、西郷どんや方言モチーフのシュールでかわいいご当地グッズ専門店。瓦・暖簾・畳・黒電話の和モダンな店内に、大きな西郷どん提灯がお出迎え。約2か月に1回新商品が並び、店舗限定品も。</p>
+            <div class="tag-row"><span>西郷どんコインケース</span><span>刺繍キーホルダー</span><span>しろくまTシャツ</span><span>トート・文房具</span></div>
+            <div class="info-line">中央駅西口から徒歩約5分／鹿児島市西田2-10-13 1F／営業10:00〜19:00（水曜定休・祝日営業）／TEL 099-259-8008</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-card fu" style="margin-top:26px">
+      <div class="page-badge">3日目・各自昼食</div>
+      <div class="eyebrow">🐷 LUNCH</div>
+      <h2 class="page-title">ガッツリ<span class="hl">ランチ</span></h2>
+      <div class="title-rule"></div>
+      <div class="photo-grid">
+        <div class="photo-card fu">
+          <img src="images/1kurokatsutei.jpg" alt="黒かつ亭 中央駅本店" loading="lazy">
+          <div class="photo-body">
+            <span class="photo-tag">黒豚とんかつ</span>
+            <div class="photo-name">黒かつ亭 中央駅本店</div>
+            <p class="photo-desc">鹿児島県産黒豚をじっくり熟成させ、旨み・甘みを引き出した黒豚とんかつ専門店。選び抜いた生パン粉でサクッ、肉はやわらか。ごはんは鹿児島県産・伊佐米ヒノヒカリ（炊きあがり2時間以内）。昼は行列の人気店。</p>
+            <div class="tag-row"><span>黒かつ亭定食</span><span>上ロースかつ定食 2,590円</span><span>黒豚ロース4種ミックス 2,290円</span></div>
+            <div class="info-line">中央駅から徒歩約9分／鹿児島市中央町16-9 中原ビル1F／カウンター・テーブル・個室</div>
+          </div>
+        </div>
+        <div class="photo-card fu">
+          <img src="images/1kagoshimaramen.jpg" alt="鹿児島ラーメン 豚とろ" loading="lazy">
+          <div class="photo-body">
+            <span class="photo-tag">鹿児島ラーメン</span>
+            <div class="photo-name">鹿児島ラーメン 豚とろ 中央駅前店</div>
+            <p class="photo-desc">希少部位「豚トロ」を使った自家製とろけるチャーシューが名物。鹿児島豚に鶏ガラ・カツオを合わせた濃厚とんこつスープと中太麺。卓上の漬物は食べ放題。「至福の一杯」と評判。</p>
+            <div class="tag-row"><span>半熟玉子入り豚とろラーメン 約1,000円</span><span>ラーメン(小) 830円</span><span>替え玉あり</span></div>
+            <div class="info-line">中央駅東口（桜島口）から徒歩約3分・ベル通り突き当たり／深夜まで営業</div>
+          </div>
+        </div>
+        <div class="photo-card fu">
+          <div style="height:190px;background:linear-gradient(160deg,#fff,var(--gold-soft));display:flex;align-items:center;justify-content:center">
+            <svg width="130" height="100" viewBox="0 0 130 100" aria-hidden="true"><ellipse cx="65" cy="75" rx="55" ry="16" fill="#e8e8e8" stroke="#2c2015" stroke-width="2"/><path d="M18,75 Q65,20 112,75Z" fill="#fff" stroke="#2c2015" stroke-width="2"/><circle cx="45" cy="55" r="6" fill="#b8402c"/><circle cx="65" cy="45" r="6" fill="#4c6b3f"/><circle cx="85" cy="58" r="6" fill="#e2a83f"/><circle cx="60" cy="65" r="6" fill="#233450"/></svg>
+          </div>
+          <div class="photo-body">
+            <span class="photo-tag">名物スイーツ</span>
+            <div class="photo-name">天文館むじゃき（元祖しろくま）</div>
+            <p class="photo-desc">鹿児島名物のスイーツといえばかき氷「しろくま」。山盛りのかき氷にフルーツなどをトッピングし、甘い練乳がたっぷり。メニューがとても多く、好みやその日の気分にあった「しろくま」が楽しめるのが魅力的！秘伝の自家製ミルクがたっぷりで、ふわっふわな食感がクセになります！</p>
+            <div class="tag-row"><span>しろくま(レギュラー)</span><span>ベビーしろくま</span><span>多彩なしろくまメニュー</span></div>
+            <div class="info-line">鹿児島中央駅直結「アミュプラザ鹿児島」内／食事メニューも充実、ランチ&amp;デザートに</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ お土産 ============ -->
+<section class="sec" id="souvenir">
+  <div class="sec-inner">
+    <div class="page-card fu">
+      <div class="page-badge">その①</div>
+      <div class="eyebrow">🍰 SOUVENIRS 1 / SWEETS</div>
+      <h2 class="page-title">お土産・<span class="hl">お菓子</span></h2>
+      <div class="title-rule"></div>
+      <div class="mini-grid">
+        <div class="mini-card fu"><img src="images/0satsumaimotaruto.jpg" alt="薩摩芋タルト" loading="lazy"><p>薩摩芋タルト</p></div>
+        <div class="mini-card fu"><img src="images/0fesutexibaruraburi.jpg" alt="フェスティバロ ラブリー" loading="lazy"><p>フェスティバロ ラブリー</p></div>
+        <div class="mini-card fu"><img src="images/0toruyakarukannmannjyuu.jpg" alt="とらや かるかん饅頭" loading="lazy"><p>とらや かるかん饅頭</p></div>
+        <div class="mini-card fu"><img src="images/0kasutadon.jpg" alt="蒸氣屋 かすたどん" loading="lazy"><p>蒸氣屋 かすたどん</p></div>
+        <div class="mini-card fu"><img src="images/0mikanjyamu.jpg" alt="桜島小みかんジャム" loading="lazy"><p>桜島小みかんジャム</p></div>
+      </div>
+      <p class="lead" style="margin-top:18px">薩摩芋タルトは鹿児島名産のさつま芋をふんだんに使った洋風タルト。フェスティバロ ラブリーは自社栽培の唐芋を使ったレアケーキ（中央駅みやげ横丁内）。かるかん饅頭は山芋のふわふわ生地にこし餡がぎっしり。かすたどんは冷やしても凍らせても美味。みかんジャムは世界最小級の柑橘「桜島小みかん」使用（みやげ横丁 各店舗）。</p>
+    </div>
+
+    <div class="page-card fu" style="margin-top:26px">
+      <div class="page-badge">その②</div>
+      <div class="eyebrow">🍶 SOUVENIRS 2 / DRINK &amp; CRAFT</div>
+      <h2 class="page-title">お土産・<span class="hl">名産</span></h2>
+      <div class="title-rule"></div>
+      <div class="mini-grid">
+        <div class="mini-card fu"><img src="images/0tirantya.jpg" alt="知覧茶" loading="lazy"><p>知覧茶</p></div>
+        <div class="mini-card fu"><img src="images/0fure-ba-syoutyu.jpg" alt="フレーバー焼酎" loading="lazy"><p>フレーバー焼酎</p></div>
+        <div class="mini-card fu"><img src="images/1satsumakiriko.jpg" alt="薩摩切子 箸置き" loading="lazy"><p>薩摩切子 箸置き</p></div>
+        <div class="mini-card fu"><img src="images/0satumaage.jpg" alt="月揚庵のさつま揚げ" loading="lazy"><p>月揚庵のさつま揚げ</p></div>
+      </div>
+      <p class="lead" style="margin-top:18px">知覧茶は全国有数の茶どころ・南九州市知覧町のブランド茶（みやげ横丁 各店舗）。フレーバー焼酎はライチやバナナ、柑橘のような華やかな香りでボトルもおしゃれ（Shochu Ishinkan・中央駅直結）。薩摩切子箸置きは鮮やかな色彩と繊細なカットが美しい伝統工芸（アミュプラザ鹿児島）。月揚庵のさつま揚げは西郷隆盛のかわいいパッケージで有名な定番土産（みやげ横丁）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 部屋割り ============ -->
+<section class="sec alt" id="rooms">
+  <div class="sec-inner">
+    <div class="page-card fu">
+      <div class="page-badge">2泊分</div>
+      <div class="eyebrow">🏠 ROOM ASSIGNMENTS</div>
+      <h2 class="page-title"><span class="hl">部屋割り</span></h2>
+      <div class="title-rule"></div>
+      <p class="lead">※部屋番号は直前に分かります。決まったら下の欄にご記入ください（この端末に自動保存されます）。</p>
+
+      <div class="room-cols">
+        <div>
+          <div class="room-col-head">1日目／指宿白水館（和室）</div>
+          <div class="room-grid" id="roomsDay1"></div>
+        </div>
+        <div>
+          <div class="room-col-head">2日目／ダイワロイネット天文館（2名1室）</div>
+          <div class="room-grid" id="roomsDay2"></div>
+        </div>
+      </div>
+
+      <div class="room-hotel-note">
+        <b>指宿 砂むし温泉 白水館（和室）</b>：指宿市東方12126-12／TEL 0993-22-3131<br>
+        <b>ダイワロイネット鹿児島天文館PREMIER</b>：鹿児島市千日町1-1／TEL 099-216-7255（繁華街・天文館「センテラス天文館」内）
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ご宿泊のご案内 ============ -->
+<section class="sec" id="stay">
+  <div class="sec-inner">
+    <div class="page-card fu">
+      <div class="page-badge">2泊分</div>
+      <div class="eyebrow">♨️ STAY GUIDE</div>
+      <h2 class="page-title">ご<span class="hl">宿泊</span>のご案内</h2>
+      <div class="title-rule"></div>
+
+      <h3 style="color:var(--navy);margin-bottom:10px">1泊目／指宿白水館（和室）　7/18（土）泊</h3>
+      <div class="stay-card">
+        <div class="bubbles" aria-hidden="true">
+          <span class="bubble" style="left:6px;width:8px;height:8px;animation-delay:0s"></span>
+          <span class="bubble" style="left:26px;width:6px;height:6px;animation-delay:1.4s"></span>
+          <span class="bubble" style="left:46px;width:10px;height:10px;animation-delay:2.6s"></span>
+          <span class="bubble" style="left:16px;width:5px;height:5px;animation-delay:3.6s"></span>
+        </div>
+        <h4>【砂むし温泉（指宿名物）】</h4>
+        <p class="onsen-time">場所：元禄風呂内　元禄風呂入口で受付</p>
+        <p class="onsen-time">時間：<b>6:00〜8:30</b>（最終入場8:00）／<b>15:30〜22:00</b>（最終入場21:30）</p>
+        <h4 style="margin-top:16px">【元禄風呂（白水館自慢の大浴場）】</h4>
+        <p class="onsen-time">場所：フロント横階段にて地下1階左手奥</p>
+        <p class="onsen-time">時間：<b>5:30〜9:30</b>（最終入場9:00）／<b>15:00〜24:00</b>（最終入場23:30）</p>
+        <h4 style="margin-top:16px">【松雲（大浴場）】</h4>
+        <p class="onsen-time">場所：フロント横階段2階</p>
+        <p class="onsen-time">時間：<b>5:00〜15:00</b>（最終入場14:30）／<b>17:30〜25:00</b>（最終入場24:30）</p>
+        <p style="font-size:.85rem;margin-top:12px;opacity:.85">※入浴時はお部屋からバスタオルを持参。フェイスタオルは浴場にあり。<br>※砂蒸し温泉利用時は【砂むし券】を元禄風呂受付まで持参。</p>
+
+        <div class="howto-grid">
+          <div class="howto-step"><div class="howto-num">1</div><p><b>受付・浴衣</b><br>大浴場前カウンターで受付し、専用浴衣を受け取る。脱衣所へ。</p></div>
+          <div class="howto-step"><div class="howto-num">2</div><p><b>着替え</b><br>下着を脱いで浴衣だけ着る。先に水分補給を。タオルは浴室内に。</p></div>
+          <div class="howto-step"><div class="howto-num">3</div><p><b>砂むし</b><br>木枕に仰向け→係員が砂をかけてくれる。10〜15分が目安（汗だく！）。</p></div>
+          <div class="howto-step"><div class="howto-num">4</div><p><b>仕上げ</b><br>シャワーで砂を流し、そのまま隣接の「元禄風呂」でゆったり。</p></div>
+        </div>
+      </div>
+
+      <h3 style="color:var(--navy);margin:26px 0 10px">2泊目／ダイワロイネット天文館PREMIER（2名1室）　7/19（日）泊</h3>
+      <div class="stay-card">
+        <p class="onsen-time"><b>立地</b>：複合施設「センテラス天文館」内（フロント7F）</p>
+        <p class="onsen-time"><b>朝食</b>：15F最上階「黒ノ壽」6:30〜10:00（最終入店9:30）・和洋ブッフェ／桜島・錦江湾ビュー（鶏飯など郷土料理も）</p>
+        <p class="onsen-time"><b>客室</b>：全室21㎡以上・バス／トイレ別・ReFa（ドライヤー等）／アメニティバー(7F)／Wi-Fi全室無料</p>
+        <p class="onsen-time"><b>大浴場</b>：なし（客室バスでゆったり）</p>
+      </div>
+
+      <div class="room-hotel-note">
+        🏮 <b>ホテル周辺メモ</b>：コンビニは徒歩圏（夜食・お買い物は各自で）。天文館アーケードで夜さんぽも◎。白熊の「むじゃき」も至近。15F展望スペース（10:00〜20:00）から桜島を一望できます。
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
 <footer>
-  <strong>有限会社大蔵プロセス</strong>　社員旅行2026 in 鹿児島<br>
-  2026年7月18日（土）〜 7月20日（月）
+  <div class="foot-msg">驚きと喜びと感動を!!</div>
+  <p>有限会社大蔵プロセス　社員旅行2026 in 鹿児島</p>
+  <p>2026年7月18日（土）〜7月20日（月）・2泊3日</p>
+  <div class="foot-contact">
+    ご旅程作成：株式会社JTB広島支店（担当：竹中 遼真）　当日緊急連絡先：080-6318-9324<br>
+    ※このページは社内共有用のウェブしおりです。
+  </div>
 </footer>
 
+<button type="button" class="top-btn" id="topBtn" aria-label="ページの一番上に戻る">▲</button>
+<button type="button" class="fab" id="fabBtn" aria-label="げんきチェック！クリックしてね">🐻</button>
+<div class="fab-bubble" id="fabBubble" role="status" aria-live="polite"></div>
+
 <script>
-/* カウントダウン */
 (function(){
-  const dep=new Date('2026-07-18T08:30:00');
-  function upd(){
-    const diff=Math.ceil((dep-new Date())/(864e5));
-    const el=document.getElementById('cdNum');
-    if(!el)return;
-    el.textContent=diff>0?diff:'0';
-    if(diff<=0)document.querySelector('.cd-label').textContent='本日出発！';
+  "use strict";
+
+  /* ---------- 座席表データ生成 ---------- */
+  var seatNames = {
+    D:['神野','吉丸家','岡野','今田','上加','溝尾','上川','大田'],
+    C:['奥さん','吉丸家','空','東谷','畠田','安村','大岡','杉元'],
+    B:['社長','吉岡','服部','松岡','中島','山田','浅尾','鈴木'],
+    A:['えりこさん','専務','工場長','三浦','神田','寺戸','安田','河田']
+  };
+  function buildSeatTable(tbody, includeAttendant){
+    var rows = ['D','C','B','A'];
+    var html = '';
+    rows.forEach(function(row, idx){
+      html += '<tr>';
+      html += '<td class="seat-row-label">'+row+'<br><span style="font-size:.7rem">'+(row==='D'||row==='A'?'窓側':'通路')+'</span></td>';
+      for(var i=0;i<8;i++){
+        var seatId = (i+1)+row;
+        var win = (row==='D'||row==='A');
+        html += '<td class="seat-cell'+(win?' window':'')+'"><span class="n">'+seatId+'</span>'+seatNames[row][i]+'</td>';
+      }
+      if(includeAttendant && row==='A'){
+        html += '<td class="seat-cell window" style="background:var(--red);color:#fff"><span class="n" style="color:#fff">9A</span>添乗員さま</td>';
+      }
+      html += '</tr>';
+      if(row==='C'){
+        html += '<tr class="door-row"><td colspan="9">— ドア／通路 —</td></tr>';
+      }
+    });
+    tbody.innerHTML = html;
   }
-  upd();setInterval(upd,60000);
+  var outboundEl = document.getElementById('seatOutbound');
+  var returnEl = document.getElementById('seatReturn');
+  if(outboundEl) buildSeatTable(outboundEl, false);
+  if(returnEl) buildSeatTable(returnEl, true);
+
+  /* ---------- 部屋割りデータ生成 ---------- */
+  var day1Rooms = [
+    ['A','社長・えりこさん'],['B','奥さん・神野'],['C','吉丸家（3人）'],
+    ['D','専務・工場長・吉岡・上加'],['E','上川・大岡・河田・山田'],['F','松岡・三浦・岡野・空'],
+    ['G','寺戸・鈴木・服部・畠田'],['H','神田・中島・今田・東谷'],['I','安田・浅尾・溝尾'],['J','杉元・大田・安村']
+  ];
+  var day2Rooms = [
+    ['あ','社長・えりこさん'],['い','奥さん・神野'],['う','吉丸家（3人）'],['え','専務・吉岡'],
+    ['お','工場長・服部'],['か','松岡・三浦'],['き','上川・大岡'],['く','河田・鈴木'],
+    ['け','岡野・空'],['こ','畠田・上加'],['さ','寺戸・山田'],['し','神田・中島'],
+    ['す','今田・東谷'],['せ','安村・溝尾'],['そ','安田・浅尾'],['た','杉元・大田']
+  ];
+  function buildRooms(container, list, keyPrefix){
+    var html = '';
+    list.forEach(function(item){
+      var key = keyPrefix+'-'+item[0];
+      html += '<div class="room-item fu">'+
+        '<div class="room-letter">'+item[0]+'</div>'+
+        '<div class="room-names">'+item[1]+'</div>'+
+        '<div class="room-num-wrap">'+
+          '<input type="text" class="room-num" inputmode="text" maxlength="8" placeholder="部屋番号" data-key="'+key+'" aria-label="'+item[1]+'の部屋番号">'+
+          '<span class="save-check" data-check="'+key+'">✓</span>'+
+        '</div>'+
+      '</div>';
+    });
+    container.innerHTML = html;
+  }
+  var r1 = document.getElementById('roomsDay1');
+  var r2 = document.getElementById('roomsDay2');
+  if(r1) buildRooms(r1, day1Rooms, 'day1');
+  if(r2) buildRooms(r2, day2Rooms, 'day2');
+
+  /* 部屋番号の自動保存 */
+  document.querySelectorAll('.room-num').forEach(function(input){
+    var key = 'shiori-room-'+input.dataset.key;
+    try{ var saved = localStorage.getItem(key); if(saved) input.value = saved; }catch(e){}
+    input.addEventListener('input', function(){
+      try{ localStorage.setItem(key, input.value); }catch(e){}
+      var chk = document.querySelector('[data-check="'+input.dataset.key+'"]');
+      if(chk){ chk.classList.remove('on'); void chk.offsetWidth; chk.classList.add('on'); }
+    });
+  });
+
+  /* ---------- カウントダウン ---------- */
+  var dep = new Date('2026-07-18T08:30:00');
+  var end = new Date('2026-07-20T20:00:00');
+  function updateCountdown(){
+    var now = new Date();
+    var numEl = document.getElementById('cdNum');
+    var labelEl = document.getElementById('cdLabel');
+    var unitEl = document.getElementById('cdUnit');
+    if(!numEl) return;
+    if(now < dep){
+      var diff = Math.ceil((dep-now)/86400000);
+      labelEl.textContent = '出発まであと';
+      numEl.textContent = diff;
+      unitEl.textContent = '日';
+    } else if(now <= end){
+      labelEl.textContent = '只今';
+      numEl.textContent = '旅行中';
+      unitEl.textContent = '🌋';
+    } else {
+      labelEl.textContent = '旅';
+      numEl.textContent = '完走';
+      unitEl.textContent = '🎉お疲れ様でした';
+    }
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+  /* ---------- スクロールで浮かび上がる ---------- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('on');
+        entry.target.querySelectorAll('.hl').forEach(function(m){ m.classList.add('on'); });
+        entry.target.querySelectorAll('.js-stamp').forEach(function(s){ s.classList.add('on'); });
+      }
+    });
+  }, {threshold:.15});
+  document.querySelectorAll('.fu').forEach(function(el){ io.observe(el); });
+
+  /* ---------- フォントサイズ切替 ---------- */
+  var sizeBtns = document.querySelectorAll('.util-bar button');
+  var savedSize = null;
+  try{ savedSize = localStorage.getItem('shiori-font-size'); }catch(e){}
+  if(savedSize){
+    document.documentElement.setAttribute('data-size', savedSize);
+    sizeBtns.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.size===savedSize ? 'true':'false'); });
+  }
+  sizeBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var size = btn.dataset.size;
+      document.documentElement.setAttribute('data-size', size);
+      sizeBtns.forEach(function(b){ b.setAttribute('aria-pressed', b===btn ? 'true':'false'); });
+      try{ localStorage.setItem('shiori-font-size', size); }catch(e){}
+    });
+  });
+
+  /* ---------- トップへ戻るボタン ---------- */
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 700){ topBtn.classList.add('show'); } else { topBtn.classList.remove('show'); }
+  });
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- くまさんボタン：クリックで応援メッセージ＋紙吹雪 ---------- */
+  var cheerMsgs = [
+    'いってらっしゃい！🐻',
+    '驚きと喜びと感動を!!',
+    '黒豚しゃぶしゃぶ楽しみだね🐷',
+    '砂むし温泉であったまろう♨️',
+    '写真たくさん撮ってね📷',
+    '桜島、元気に噴煙あげてるかな🌋',
+    'しろくま食べる？🍧',
+    '忘れ物ないようにね！',
+    '単独行動はダメだよ〜',
+    '最高の思い出つくろうね！'
+  ];
+  var fab = document.getElementById('fabBtn');
+  var bubble = document.getElementById('fabBubble');
+  var bubbleTimer;
+  function burstConfetti(x, y){
+    var colors = ['#b8402c','#e2a83f','#4c6b3f','#233450','#f6dfa0'];
+    for(var i=0;i<26;i++){
+      var c = document.createElement('div');
+      c.className = 'confetti';
+      c.style.left = x+'px';
+      c.style.top = y+'px';
+      c.style.background = colors[i % colors.length];
+      var dx = (Math.random()-0.5)*260;
+      var dur = 1.1 + Math.random()*0.9;
+      c.style.transform = 'translate(0,0) rotate(0deg)';
+      c.style.transition = 'transform '+dur+'s cubic-bezier(.2,.7,.4,1), opacity '+dur+'s';
+      document.body.appendChild(c);
+      (function(el, dx, dur){
+        requestAnimationFrame(function(){
+          el.style.transform = 'translate('+dx+'px, '+(300+Math.random()*220)+'px) rotate('+(300+Math.random()*400)+'deg)';
+          el.style.opacity = '0';
+        });
+        setTimeout(function(){ el.remove(); }, dur*1000+50);
+      })(c, dx, dur);
+    }
+  }
+  fab.addEventListener('click', function(e){
+    var rect = fab.getBoundingClientRect();
+    burstConfetti(rect.left+rect.width/2, rect.top+rect.height/2);
+    var msg = cheerMsgs[Math.floor(Math.random()*cheerMsgs.length)];
+    bubble.textContent = msg;
+    bubble.classList.add('show');
+    fab.style.animation = 'wiggle .5s ease';
+    setTimeout(function(){ fab.style.animation=''; }, 500);
+    clearTimeout(bubbleTimer);
+    bubbleTimer = setTimeout(function(){ bubble.classList.remove('show'); }, 2600);
+  });
 })();
-
-/* ヒーロー Ken Burns */
-window.addEventListener('load',function(){
-  document.getElementById('heroBg').classList.add('loaded');
-});
-
-/* スクロールアニメーション */
-const io=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on');});
-},{threshold:.12});
-document.querySelectorAll('.fu').forEach(function(el){io.observe(el);});
-
-/* スライダー ドラッグ */
-document.querySelectorAll('.slider').forEach(function(s){
-  let down=false,sx,sl;
-  s.addEventListener('mousedown',function(e){down=true;sx=e.pageX-s.offsetLeft;sl=s.scrollLeft;s.style.cursor='grabbing';});
-  s.addEventListener('mouseleave',function(){down=false;s.style.cursor='grab';});
-  s.addEventListener('mouseup',function(){down=false;s.style.cursor='grab';});
-  s.addEventListener('mousemove',function(e){if(!down)return;e.preventDefault();s.scrollLeft=sl-(e.pageX-s.offsetLeft-sx)*1.5;});
-});
 </script>
 </body>
 </html>
